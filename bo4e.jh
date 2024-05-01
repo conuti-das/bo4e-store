@@ -1,0 +1,3043 @@
+/** BO4E JHipster */
+
+entity AdHocSteuerkanal {
+  boTyp BOTyp
+  versionStruktur String
+  konfigurationsprodukt String
+}
+
+entity Anfrage {
+  boTyp BOTyp
+  versionStruktur String
+  lokationsId String
+  anfragetyp Anfragetyp
+  abonnement Abonnement
+  anfragereferenz String
+  allgemeineInformationen String
+  anfragekategorie Anfragekategorie
+  energierichtung Energierichtung
+  gueltigkeitszeitspanne String
+  gueltigAb ZonedDateTime
+}
+
+entity Angebot {
+  boTyp BOTyp
+  versionStruktur String
+  angebotsnummer String
+  anfragereferenz String
+  angebotsdatum ZonedDateTime
+  sparte Sparte
+  bindefrist ZonedDateTime
+}
+
+entity Ansprechpartner {
+  boTyp BOTyp
+  versionStruktur String
+  nachname String
+  eMailAdresse String
+}
+
+entity Auftrag {
+  boTyp BOTyp
+  versionStruktur String
+  ausfuehrungsdatum ZonedDateTime
+  fertigstellungsdatum ZonedDateTime
+  startdatum ZonedDateTime
+  sparte Sparte
+  marktlokationsId String
+  energierichtung Energierichtung
+  berechnungspreis Float
+  summeGesamt Float
+  verschobenerAbmeldetermin ZonedDateTime
+  behebungsZeitpunkt ZonedDateTime
+  definitionsTyp DefinitionsTyp
+}
+
+entity Avis {
+  boTyp BOTyp
+  versionStruktur String
+  avisNummer String
+  avisTyp AvisTyp
+}
+
+entity Berechnungsformel {
+  boTyp BOTyp
+  versionStruktur String
+  beginndatum ZonedDateTime
+  notwendigkeit BerechnungsformelNotwendigkeit
+  lieferrichtung Energierichtung
+  rechenschrittId Integer
+}
+
+entity Bilanzierung {
+  boTyp BOTyp
+  versionStruktur String
+  marktlokationsId String
+  aggregationsverantwortung Aggregationsverantwortung
+  zeitreihentyp String
+  prognosegrundlage Prognosegrundlage
+  bilanzierungsbeginn ZonedDateTime
+  bilanzierungsende ZonedDateTime
+  bilanzkreis String
+  fallgruppenzuordnung Fallgruppenzuordnung
+  wahlrechtPrognosegrundlage WahlrechtPrognosegrundlage
+  grundWahlrechtPrognosegrundlage WahlrechtPrognosegrundlage
+  abwicklungsmodell Abwicklungsmodell
+  datenqualitaet Datenqualitaet
+  zeitraumId Integer
+  detailsPrognosegrundlage Profiltyp
+}
+
+entity Bilanzkreis {
+  boTyp BOTyp
+  versionStruktur String
+  bezeichnung String
+  prioritaet Integer
+}
+
+entity Energiemenge {
+  boTyp BOTyp
+  versionStruktur String
+  lokationsId String
+  lokationsTyp Lokationstyp
+  fertigstellungsdatum ZonedDateTime
+  startdatum ZonedDateTime
+  enddatum ZonedDateTime
+  bilanzierungsdatum ZonedDateTime
+  beginndatum ZonedDateTime
+  referenzStammdatenmeldungMsb String
+  konfiguration String
+}
+
+entity Geschaeftspartner {
+  boTyp BOTyp
+  versionStruktur String
+  anrede String
+  name1 String
+  name2 String
+  name3 String
+  name4 String
+  umsatzsteuerId String
+  glaeubigerId String
+  emailAdresse String
+  website String
+  gewerbekennzeichnung Boolean
+  hrnummer String
+  amtsgericht String
+  externeKundenummerLieferant String
+  geschaeftspartnerrolle Geschaeftspartnerrolle
+  kontaktweg Kontaktart
+}
+
+entity Handelsunstimmigkeit {
+  boTyp BOTyp
+  versionStruktur String
+  nummer String
+  typ Handelsunstimmigkeitstyp
+}
+
+entity Kommunikationsdaten {
+  boTyp BOTyp
+  versionStruktur String
+  gueltigkeit ZonedDateTime
+  kommunikationsDatenBlattInaktiv Boolean
+}
+
+entity Leistungskurvendefinition {
+  boTyp BOTyp
+  versionStruktur String
+  beginndatum ZonedDateTime
+  endedatum ZonedDateTime
+  version ZonedDateTime
+  code String
+  notwendigkeit DefinitionenNotwendigkeit
+}
+
+entity Lokationsbuendel {
+  boTyp BOTyp
+  versionStruktur String
+  lokationsbuendelstrukturId String
+  lokationsbuendelNummer Integer
+  standardisierteLokationsbuendelstruktur Boolean
+  datenqualitaet Datenqualitaet
+  zeitraumId Integer
+}
+
+entity Marktlokation {
+  boTyp BOTyp
+  versionStruktur String
+  marktlokationsId String
+  sparte String
+  energierichtung Energierichtung
+  bilanzierungsmethode Bilanzierungsmethode
+  verbrauchsart Verbrauchsart
+  unterbrechbar Boolean
+  netzebene Netzebene
+  umspannung Netzebene
+  netzbetreiberCodeNr String
+  gebietTyp Gebiettyp
+  netzgebietNr String
+  bilanzierungsgebiet String
+  grundversorgerCodeNr String
+  gasqualitaet Gasqualitaet
+  regelzone String
+  marktgebiet String
+  zeitreihentyp Zeitreihentyp
+  messtechnischeEinordnung MesstechnischeEinordnung
+  sperrstatus Sperrstatus
+  referenzMarktlokationsId String
+  versorgungsart Versorgungsart
+  verguetungEmpfaenger VerguetungEmpfaenger
+  statusErzeugendeMalo StatusErzeugendeMarktlokation
+  fernsteuerbarkeit Fernsteuerbarkeit
+  foerderungsLand String
+  redispatch Boolean
+  zukuenftigerMeldepunkt Boolean
+  lokationszuordnung Lokationszuordnung
+  konfigurationsprodukt String
+  leistungskurvendefinition String
+  produktdatenRelevanteRolle Marktrolle
+  modulNetzentgelte ModulNetzentgelte
+  datenqualitaet Datenqualitaet
+  zeitraumId Integer
+  zaehlwerkeBeteiligteMarktrolle Marktrolle
+}
+
+entity Marktteilnehmer {
+  boTyp BOTyp
+  versionStruktur String
+  geschaeftspartnerrolle Geschaeftspartnerrolle
+  anrede String
+  name1 String
+  name2 String
+  name3 String
+  name4 String
+  gewerbekennzeichnung Boolean
+  externeKundenummerLieferant String
+  marktrolle Marktrolle
+  rollencodenummer String
+  rollencodetyp String
+  umsatzsteuerId String
+  steuernummer String
+  makoadresse String
+  downloadlinkZertifikat String
+  amtsgericht String
+  hrnummer String
+  website String
+  faxnummer String
+  kommunikationsrolle Kommunikationsrolle
+  weiterverpflichtet Boolean
+  messstellenbetreiberEigenschaft MSBEigenschaft
+}
+
+entity Messlokation {
+  boTyp BOTyp
+  versionStruktur String
+  messlokationsId String
+  sparte Sparte
+  energierichtung Energierichtung
+  netzebenemessung Netzebene
+  messgebietNr String
+  grundzustaendigerMSBCodeNr String
+  bilanzierungsmethode Bilanzierungsmethode
+  abrechnungmessstellenbetriebnna Boolean
+  gasqualitaet Gasqualitaet
+  verlustfaktor Float
+  betriebszustand Betriebszustand
+  referenzMarktlokationsId String
+  verwendungsumfang Verwendungsumfang
+  zukuenftigerMeldepunkt Boolean
+  lokationszuordnung Lokationszuordnung
+}
+
+entity Netzlokation {
+  boTyp BOTyp
+  versionStruktur String
+  netzlokationsId String
+  sparte Sparte
+  netzanschlussleistung String
+  grundzustaendigerMSBCodeNr String
+  steuerkanal Boolean
+  lokationszuordnung Lokationszuordnung
+  produktdatenRelevanteRolle Marktrolle
+  konfigurationsprodukt String
+  keinKonfigurationsprodukt Boolean
+  leistungskurvendefinition String
+}
+
+entity Preisblatt {
+  boTyp BOTyp
+  versionStruktur String
+  bezeichnung String
+  preisstatus Preisstatus
+  sparte Sparte
+  bilanzierungsdatum ZonedDateTime
+  regelzone String
+  leistungstyp Leistungstyp
+  nichtGenutzt Boolean
+}
+
+entity Rechnung {
+  boTyp BOTyp
+  versionStruktur String
+  istSelbstausgestellt Boolean
+  bearbeitungsdatum ZonedDateTime
+  rechnungsdatum ZonedDateTime
+  faelligkeitsdatum ZonedDateTime
+  rechnungsstatus Rechnungsstatus
+  rechnungstyp Rechnungstyp
+  istReverseCharge Boolean
+  originalRechnungsnummer String
+  referenzNachrichtendatum String
+  referenzDokumentennummer String
+  referenzVorgaengerrechnung String
+  datumVorgaengerrechnung ZonedDateTime
+  netzkonto String
+  ausfuehrungsdatum ZonedDateTime
+  sonderrechnungsart SonderrechnungsArt
+  energierichtung Energierichtung
+  beginnPeriodeBilanzierung ZonedDateTime
+  endePeriodeNetznutzung ZonedDateTime
+}
+
+entity Reklamation {
+  boTyp BOTyp
+  versionStruktur String
+  lokationsId String
+  lokationsTyp Lokationstyp
+  obiskennzahl String
+  reklamationsgrund Reklamationsgrund
+  konfiguration String
+}
+
+entity Schaltzeitdefinition {
+  boTyp BOTyp
+  versionStruktur String
+  beginndatum ZonedDateTime
+  endedatum ZonedDateTime
+  version ZonedDateTime
+  code String
+  notwendigkeit DefinitionenNotwendigkeit
+}
+
+entity Sperrauftrag {
+  boTyp BOTyp
+  versionStruktur String
+  sperrauftragsart Sperrauftragsart
+  sperrauftragsstatus Auftragsstatus
+  sperrauftragsablehngrund Sperrauftragsablehngrund
+  sperrauftragsverhinderungsgrund Sperrauftragsverhinderungsgrund
+  zaehlernummer String
+  istVomGerichtsvollzieherAngeordnet Boolean
+}
+
+entity Statusbericht {
+  boTyp BOTyp
+  versionStruktur String
+  status BerichtStatus
+  pruefgegenstand String
+  datumPruefung ZonedDateTime
+}
+
+entity Statusmitteilung {
+  boTyp BOTyp
+  versionStruktur String
+  statusObjekt Statusobjekt
+  statusanlass Status
+  auftragsstatus Auftragsstatus
+}
+
+entity SteuerbareRessource {
+  boTyp BOTyp
+  versionStruktur String
+  ressourcenId String
+  sparte Sparte
+  lokationszuordnung Lokationszuordnung
+  konfigurationsprodukt String
+  steuerkanal Steuerkanal
+  produktdatenRelevanteRolle Marktrolle
+}
+
+entity TechnischeRessource {
+  boTyp BOTyp
+  versionStruktur String
+  ressourcenId String
+  sparte Sparte
+  lokationszuordnung Lokationszuordnung
+  referenzMesslokation String
+  referenzMarktlokation String
+  referenzNetzlokation String
+  referenzSteuerbareRessource String
+  speicherkapazitaet Float
+  verbrauchsart Verbrauchsart
+  waermenutzung Waermenutzung
+  artEMobilitaet ArtEmobilitaet
+  erzeugungsart Erzeugungsart
+  speicherart Speicherart
+  enwg Boolean
+  inbetriebsetzungsdatum Inbetriebsetzung
+  einordnung RessourceWechselmoeglichkeit
+  weitereEinrichtung Boolean
+  art TechnischeRessourceArt
+}
+
+entity Tranche {
+  boTyp BOTyp
+  versionStruktur String
+  tranchenId String
+  sparte Sparte
+  energierichtung Energierichtung
+  bilanzierungsmethode Bilanzierungsmethode
+  verbrauchsart Verbrauchsart
+  unterbrechbar Boolean
+  netzebene Netzebene
+  netzbetreiberCodeNr String
+  gebietTyp Gebiettyp
+  netzgebietNr String
+  bilanzierungsgebiet String
+  grundversorgerCodeNr String
+  gasqualitaet Gasqualitaet
+  regelzone String
+  marktgebiet String
+  zeitreihentyp Zeitreihentyp
+  messtechnischeEinordnung MesstechnischeEinordnung
+  sperrstatus Sperrstatus
+  referenzMarktlokationsId String
+  versorgungsart Versorgungsart
+  fernsteuerbarkeit Fernsteuerbarkeit
+  verguetungEmpfaenger VerguetungEmpfaenger
+  foerderungsLand String
+  statusErzeugendeMalo StatusErzeugendeMarktlokation
+  referenzTranche String
+  bilanzkreis String
+  bildungTranchengroesse BildungTranchengroesse
+  zukuenftigerMeldepunkt Boolean
+  lokationszuordnung Lokationszuordnung
+  zaehlwerkeBeteiligteMarktrolle Marktrolle
+}
+
+entity Vertrag {
+  boTyp BOTyp
+  versionStruktur String
+  sparte Sparte
+  vertragsart String
+  vertragsnummer String
+  beschreibung String
+  lokationsId String
+  lokationsTyp Lokationstyp
+  vertragsstatus Vertragstatus
+  vertragsbeginn ZonedDateTime
+  vertragsende ZonedDateTime
+  gemeinderabatt Integer
+  abrechnungUeberNna Boolean
+  datenqualitaet Datenqualitaet
+  zeitraumId Integer
+}
+
+entity Verwendungszeitraum {
+  boTyp BOTyp
+  versionStruktur String
+  verwendungAb ZonedDateTime
+  verwendungBis ZonedDateTime
+  zeitraumId Integer
+  qualitaet Verwendungszeitraumqualitaet
+}
+
+entity WerteNachTyp2 {
+  boTyp BOTyp
+  versionStruktur String
+  konfigurationsprodukt String
+  messprodukt String
+  aenderungsmoeglichkeitKonfiguration AenderungsmoeglichkeitKonfiguration
+}
+
+entity Zaehler {
+  boTyp BOTyp
+  versionStruktur String
+  zaehlernummer String
+  sparte Sparte
+  zaehlerauspraegung Zaehlerauspraegung
+  zaehlertyp Zaehlertyp
+  tarifart Tarifart
+  zaehlerkonstante Float
+  eichungBis ZonedDateTime
+  gateway String
+  fernschaltung Fernschaltung
+  messwerterfassung Messwerterfassung
+  zaehlertypspezifikation ZaehlertypSpezifikation
+  befestigungsart Befestigungsart
+  zaehlergroesse Geraetemerkmal
+  mengenumwertertyp Mengenumwertertyp
+  volumenerfassung Volumenerfassung
+  serialnummer String
+  geraetemerkmal Geraetemerkmal
+  herstellungsdatum ZonedDateTime
+  baujahr String
+  messlokationsId String
+  marktlokationsId String
+}
+
+entity Zaehlzeitdefinition {
+  boTyp BOTyp
+  versionStruktur String
+  beginndatum ZonedDateTime
+  endedatum ZonedDateTime
+  version ZonedDateTime
+  notwendigkeit DefinitionenNotwendigkeit
+  versionsangabe String
+  code String
+}
+
+entity Abschlag {
+  typ AbschlagTyp
+  prozent Float
+}
+
+entity Abweichung {
+  abweichungsgrund Abweichungsgrund
+  abweichungsgrundBemerkung String
+  zugehoerigeRechnung String
+  zugehoerigeBestellung String
+  abweichungsgrundCode String
+  abweichungsgrundCodeliste String
+  fehlendePositionen1 String
+  fehlendePositionen2 String
+  fehlendePositionen3 String
+  fehlendePositionen4 String
+  fehlendePositionen5 String
+  abweichungsgrundBemerkung1 String
+  abweichungsgrundBemerkung2 String
+  abweichungsgrundBemerkung3 String
+  abweichungsgrundBemerkung4 String
+  abweichungsgrundBemerkung5 String
+  referenz String
+}
+
+entity Abweichungsposition {
+  abweichungsgrundCode String
+  abweichungsgrundCodeliste String
+  abweichungsgrundBemerkung String
+  zugehoerigeRechnung String
+  zugehoerigeBestellung String
+}
+
+entity Adresse {
+  postleitzahl String
+  ort String
+  strasse String
+  hausnummer String
+  postfach String
+  adresszusatz String
+  coErgaenzung String
+  landescode Landescode
+  ortsteil String
+}
+
+entity AdresszusatzInformation {
+  zusatz1 String
+  zusatz2 String
+  zusatz3 String
+  zusatz4 String
+  zusatz5 String
+}
+
+entity AllgemeineInformationen {
+  info1 String
+  info2 String
+  info3 String
+  info4 String
+  info5 String
+}
+
+entity Angebotsposition {
+  positionsbezeichung String
+  preisschluesselstamm String
+  artikelnummer BDEWArtikelnummer
+}
+
+entity Angebotsteil {
+  anfrageSubreferenz String
+}
+
+entity Angebotsvariante {
+  angebotsstatus Angebotsstatus
+  beschreibung String
+  erstelldatum ZonedDateTime
+  bindefrist ZonedDateTime
+}
+
+entity AuftragPosition {
+  positionsnummer Integer
+  positionsnummerAngebot String
+  energieerfassung Energieerfassung
+  artikelnummer BDEWArtikelnummer
+  positionsbetrag String
+  startdatum ZonedDateTime
+  enddatum ZonedDateTime
+  istBestand String
+  obiskennzahl String
+  anfragegrund Anfragegrund
+  definitionsTyp DefinitionsTyp
+}
+
+entity Aussteller {
+  aussteller1 String
+  aussteller2 String
+  aussteller3 String
+  aussteller4 String
+  aussteller5 String
+}
+
+entity Avisposition {
+  rechnungsNummer String
+  rechnungsDatum ZonedDateTime
+  istStorno Boolean
+  istSelbstausgestellt Boolean
+  referenz String
+}
+
+entity Bankverbindung {
+  verwendungszweck BankverbindungVerwendungszweck
+  iban String
+  kontoinhaber String
+  bic String
+  kreditinstitut String
+}
+
+entity Begruendung {
+  begruendung1 String
+  begruendung2 String
+  begruendung3 String
+  begruendung4 String
+  begruendung5 String
+}
+
+entity Beschreibung {
+  beschreibung1 String
+  beschreibung2 String
+}
+
+entity Betrag {
+  wert Float
+  waehrung String
+}
+
+entity Dienstleistung {
+  dienstleistungstyp Dienstleistungstyp
+  bezeichnung String
+}
+
+entity Energieherkunft {
+  erzeugungsart Erzeugungsart
+  anteilProzent Float
+}
+
+entity EnFG {
+  grundlageVerringerungUmlagen GrundlageVerringerungUmlagen
+  grund GrundlageVerringerungUmlagenGrund
+}
+
+entity Erreichbarkeit {
+  verfuegbarkeit Verfuegbarkeit
+  zeit String
+}
+
+entity ExterneReferenz {
+  exRefName String
+  exRefWert String
+}
+
+entity Fehler {
+  typ FehlerTyp
+}
+
+entity Fehlerbeschreibung {
+  beschreibung1 String
+  beschreibung2 String
+  beschreibung3 String
+  beschreibung4 String
+  beschreibung5 String
+}
+
+entity FehlerDetail {
+  code FehlerCode
+}
+
+entity FehlerUrsache {
+  dokument String
+  nachricht String
+  transaktion String
+  segment String
+}
+
+entity Freitext {
+  freitext1 String
+  freitext2 String
+  freitext3 String
+  freitext4 String
+  freitext5 String
+}
+
+entity Gemeinderabatt {
+  wert Float
+  einheit String
+  typ String
+  bemessungsgrundlage Float
+}
+
+entity Geraet {
+  geraetetyp Geraetetyp
+  bezeichnung String
+  geraetenummer String
+  geraetereferenz String
+  volumenerfassung Volumenerfassung
+}
+
+entity Geraeteeigenschaften {
+  geraetetyp Geraetetyp
+  geraetemerkmal Geraetemerkmal
+  faktor Float
+}
+
+entity Gruppe {
+  gruppe1 String
+  gruppe2 String
+}
+
+entity Handelsunstimmigkeitsbegruendung {
+  richtigkeit Handelsunstimmigkeitsrichtigkeit
+  referenzDar String
+  referenznummer String
+  bestaetigungDar String
+  grund Handelsunstimmigkeitsgrund
+  hinweis String
+}
+
+entity InfoAbweichung {
+  abweichung1 String
+  abweichung2 String
+  abweichung3 String
+  abweichung4 String
+  abweichung5 String
+}
+
+entity IPAdresseCLSDevice {
+  IPAdresseCLSDevice1 String
+  IPAdresseCLSDevice2 String
+  IPAdresseCLSDevice3 String
+  IPAdresseCLSDevice4 String
+  IPAdresseCLSDevice5 String
+}
+
+entity Katalogverweis {
+  katalognummer String
+  zeilennummer String
+  versionsnummer String
+}
+
+entity Katasteradresse {
+  gemarkungflur String
+  flurstueck String
+}
+
+entity Kommunikationsparameter {
+}
+
+entity Konzessionsabgabe {
+  satz AbgabeArt
+  kosten Float
+  kategorie String
+}
+
+entity Lastprofil {
+  bezeichnung String
+  verfahren Profilverfahren
+  profilart Profilart
+  profilschar String
+  einspeisung Boolean
+  herausgeber String
+}
+
+entity Leistungskurve {
+  code String
+  aenderungszeitpunkt ZonedDateTime
+  haeufigkeit HaeufigkeitLeistungskurve
+  uebermittelbarkeit UebermittelbarkeitLeistungskurve
+  konfigurationsprodukt String
+}
+
+entity Menge {
+  wert Float
+  einheit Mengeneinheit
+}
+
+entity Messlokationszuordnung {
+  messlokationsId String
+  arithmetik ArithmetischeOperation
+  gueltigSeit ZonedDateTime
+  gueltigBis ZonedDateTime
+}
+
+entity Messstellenbetriebsabrechnungsdaten {
+  messstellenbetriebsabrechnung Boolean
+  artikelId String
+  artikelIdTyp ArtikelIdTyp
+  anzahl Integer
+  zuschlag Float
+  abschlag Float
+}
+
+entity Nennleistung {
+  aufnahme Float
+  abgabe Float
+}
+
+entity Netznutzungsabrechnungsdaten {
+  artikelId String
+  artikelIdTyp ArtikelIdTyp
+  anzahl Integer
+  gemeinderabatt Float
+  zuschlag Float
+  abschlag Float
+  abrechnungBlindarbeit Boolean
+  zahlerBlindarbeit ZahlerBlindarbeit
+  zahlerBlindarbeitLf Boolean
+  differenzDaten Boolean
+}
+
+entity Objectcode {
+  objectcode String
+  lokationsbuendelNummer Integer
+}
+
+entity PositionsAufAbschlag {
+  bezeichnung String
+  beschreibung String
+  aufAbschlagstyp AufAbschlagstyp
+  aufAbschlagswert Float
+  aufAbschlagswaehrung Waehrungseinheit
+}
+
+entity Preis {
+  wert Float
+  einheit Waehrungseinheit
+  bezugswert Mengeneinheit
+  status Preisstatus
+}
+
+entity Preisposition {
+  berechnungsmethode Kalkulationsmethode
+  leistungstyp Leistungstyp
+  leistungsbezeichnung String
+  preiseinheit Waehrungseinheit
+  bezugsgroesse Mengeneinheit
+  zeitbasis Zeiteinheit
+  tarifzeit Tarifzeit
+  bdewArtikelnummer BDEWArtikelnummer
+  zonungsgroesse Bemessungsgroesse
+  preisschluesselstamm String
+  positionsnummer Integer
+  messebene Netzebene
+  beschreibung String
+  artikelId String
+}
+
+entity Preisstaffel {
+  einheitspreis Float
+  staffelgrenzeVon Float
+  staffelgrenzeBis Float
+}
+
+entity Rechenschritt {
+  rechenschrittBestandteilId Integer
+  referenzRechenschrittId Integer
+  operation ArithmetischeOperation
+  verlustfaktorTrafo Float
+  verlustfaktorLeitung Float
+  aufteilungsfaktorEnergiemenge Float
+  messlokationsId String
+  energieflussrichtung Energierichtung
+}
+
+entity Rechnungsposition {
+  lieferungBis ZonedDateTime
+  lieferungVon ZonedDateTime
+  positionsnummer Integer
+  artikelnummer String
+  gesamtZuAbschlagsbetrag Float
+  korrekturfaktor Float
+  ausfuehrungsdatum ZonedDateTime
+}
+
+entity ReklamationsgrundBemerkung {
+  bemerkung1 String
+  bemerkung2 String
+  bemerkung3 String
+  bemerkung4 String
+  bemerkung5 String
+}
+
+entity Rueckmeldungsposition {
+  positionsnummer Integer
+}
+
+entity Rufnummer {
+  nummerntyp Rufnummernart
+  rufnummer String
+}
+
+entity Schaltzeit {
+  code String
+  aenderungszeitpunkt ZonedDateTime
+  haeufigkeit HaeufigkeitSchaltzeit
+  uebermittelbarkeit UebermittelbarkeitSchaltzeit
+  schalthandlung Schalthandlung
+  konfigurationsprodukt String
+}
+
+entity Schwellwert {
+  obererSchwellwert Float
+  untererSchwellwert Float
+  konfigurationsprodukt String
+}
+
+entity Sigmoidparameter {
+  A Float
+  B Float
+  C Float
+  D Float
+}
+
+entity StatusmitteilungPosition {
+  positionsnummer Integer
+  bearbeitungsdatum ZonedDateTime
+  verwendungAb ZonedDateTime
+  verwendungBis ZonedDateTime
+  enddatum ZonedDateTime
+  auftragsstatus Auftragsstatus
+  statusanlass Statusanlass
+  antwortstatus String
+  lokationsId String
+  referenzMelo String
+  statusVeraenderungsZeitpunkt ZonedDateTime
+  auftragsStatusListe Auftragsstatus
+}
+
+entity StatusZusatzInformation {
+  art StatusArt
+  status Status
+}
+
+entity Steuerbetrag {
+  steuerkennzeichen String
+  basiswert Float
+  steuerwert Float
+  waehrung String
+  basiswertVorausbezahlt Float
+  steuerwertVorausbezahhlt Float
+}
+
+entity Tagesparameter {
+  klimazone String
+  temperaturmessstelle String
+  dienstanbieter String
+  herausgeber Herausgeber
+}
+
+entity Verbrauch {
+  startdatum ZonedDateTime
+  enddatum ZonedDateTime
+  wertermittlungsverfahren Wertermittlungsverfahren
+  messwertstatus Messwertstatus
+  obiskennzahl String
+  wert Float
+  einheit Mengeneinheit
+  type Verbrauchsmengetyp
+  tarifstufe Tarifstufe
+  nutzungszeitpunkt ZonedDateTime
+  ausfuehrungszeitpunkt ZonedDateTime
+  position Integer
+  ablesedatum ZonedDateTime
+  leistungsperiode String
+}
+
+entity Vertragskonditionen {
+  netznutzungszahler Netznutzungszahler
+  netznutzungsvertrag Netznutzungsvertrag
+  beinhaltetSingulaerGenutzteBetriebsmittel Boolean
+  netznutzungsabrechnungsgrundlage Netznutzungsabrechnungsgrundlage
+  netznutzungsabrechnungsvariante Netznutzungsabrechnungsvariante
+  haushaltskunde Boolean
+  abrechnungUeberNna Boolean
+  startAbrechnungsjahr ZonedDateTime
+  naechstenetznutzungsabrechnung String
+  abrechnungsintervall Integer
+  netznutzungsabrechnungIntervall Integer
+  beauftragungMsb BeauftragungMsb
+  kuendigungstermin String
+}
+
+entity Verwendungszweck {
+  marktrolle Marktrolle
+  zweck VerwendungszweckValue
+}
+
+entity Zaehlwerk {
+  zaehlwerkId String
+  bezeichnung String
+  richtung Energierichtung
+  obisKennzahl String
+  wandlerfaktor Float
+  einheit Mengeneinheit
+  schwachlastfaehig Schwachlastfaehig
+  verbrauchsart Verbrauchsart
+  unterbrechbarkeit Unterbrechbarkeit
+  waermenutzung Waermenutzung
+  steuerbefreit Boolean
+  vorkommastelle Integer
+  nachkommastelle Integer
+  abrechnungsrelevant Boolean
+  anzahlAblesungen Integer
+  konfiguration String
+  messprodukt String
+  wertegranularitaet Wertegranularitaet
+  notwendigkeitZweiteMessung NotwendigkeitZweiteMessung
+  werteuebermittlungVerwendungszweck WerteuebermittlungVerwendungszweck
+  artEMobilitaet ArtEmobilitaet
+  konfigurationsprodukt String
+  keinKonfigurationsprodukt Boolean
+  leistungskurvendefinition String
+}
+
+entity Zaehlzeit {
+  code String
+  haeufigkeit HaeufigkeitZaehlzeit
+  uebermittelbarkeit UebermittelbarkeitZaehlzeit
+  ermittlungLeistungsmaximum ErmittlungLeistungsmaximum
+  istBestellbar Boolean
+  typ ZaehlzeitdefinitionTyp
+  beschreibungTyp String
+  aenderungszeitpunkt ZonedDateTime
+  register String
+}
+
+entity Zaehlzeitregister {
+  register String
+  zaehlzeitDefinition String
+  schwachlastfaehig Schwachlastfaehig
+}
+
+entity Zeitraum {
+  zeiteinheit Zeiteinheit
+  dauer Integer
+  startdatum ZonedDateTime
+  enddatum ZonedDateTime
+  einheit Zeiteinheit
+  ableseZeitraum String
+  abrechnungsZeitraum String
+  zeitraumText String
+}
+
+entity ZertifikatsAussteller {
+  zertifikatsAussteller1 String
+  zertifikatsAussteller2 String
+  zertifikatsAussteller3 String
+  zertifikatsAussteller4 String
+  zertifikatsAussteller5 String
+}
+
+entity ZertifikatsNutzer {
+  zertifikatsNutzer1 String
+  zertifikatsNutzer2 String
+  zertifikatsNutzer3 String
+  zertifikatsNutzer4 String
+  zertifikatsNutzer5 String
+}
+
+entity Zieladresse {
+  zieladresse1 String
+  zieladresse2 String
+  zieladresse3 String
+  zieladresse4 String
+  zieladresse5 String
+}
+
+entity ZugeordneteDefinition {
+  schaltzeitdefinition String
+  leistungskurvendefinition String
+}
+
+entity ZuordnungObjectcode {
+  referenzLokationsTyp Lokationstyp
+  referenzLokationsId String
+  vorgelagerteLokationTyp Lokationstyp
+  vorgelagerteLokationId String
+}
+
+entity Zuschlag {
+  typ ZuschlagTyp
+  prozent Float
+}
+
+enum AbgabeArt {
+  KAS ("KAS")
+  SA ("SA")
+  SAS ("SAS")
+  TA ("TA")
+  TAS ("TAS")
+  TK ("TK")
+  TKS ("TKS")
+  TS ("TS")
+  TSS ("TSS")
+}
+
+enum Abonnement {
+  START_ABO ("START_ABO")
+  ENDE_ABO ("ENDE_ABO")
+  OHNE_ABO ("OHNE_ABO")
+}
+
+enum AbschlagTyp {
+  GEMEINDERABATT_KAV ("GEMEINDERABATT_KAV")
+  ANPASSUNG_P19_STROM_NEV ("ANPASSUNG_P19_STROM_NEV")
+}
+
+enum Abweichungsgrund {
+  PREIS_RECHENREGEL_FALSCH ("PREIS_RECHENREGEL_FALSCH")
+  FALSCHER_ABRECHNUNGSZEITRAUM ("FALSCHER_ABRECHNUNGSZEITRAUM")
+  UNBEKANNTE_MARKTLOKATION_MESSLOKATION ("UNBEKANNTE_MARKTLOKATION_MESSLOKATION")
+  SONSTIGER_ABWEICHUNGSGRUND ("SONSTIGER_ABWEICHUNGSGRUND")
+  DOPPELTE_RECHNUNG ("DOPPELTE_RECHNUNG")
+  ABRECHNUNGSBEGINN_UNGLEICH_VERTRAGSBEGINN ("ABRECHNUNGSBEGINN_UNGLEICH_VERTRAGSBEGINN")
+  ABRECHNUNGSENDE_UNGLEICH_VERTRAGSENDE ("ABRECHNUNGSENDE_UNGLEICH_VERTRAGSENDE")
+  BETRAG_DER_ABSCHLAGSRECHNUNG_FALSCH ("BETRAG_DER_ABSCHLAGSRECHNUNG_FALSCH")
+  VORAUSBEZAHLTER_BETRAG_FALSCH ("VORAUSBEZAHLTER_BETRAG_FALSCH")
+  ARTIKEL_NICHT_VEREINBART ("ARTIKEL_NICHT_VEREINBART")
+  NETZNUTZUNGSMESSWERTE_ENERGIEMENGEN_FEHLEN ("NETZNUTZUNGSMESSWERTE_ENERGIEMENGEN_FEHLEN")
+  RECHNUNGSNUMMER_BEREITS_ERHALTEN ("RECHNUNGSNUMMER_BEREITS_ERHALTEN")
+  NETZNUTZUNGSMESSWERTE_ENERGIEMENGEN_FALSCH ("NETZNUTZUNGSMESSWERTE_ENERGIEMENGEN_FALSCH")
+  ZEITLICHE_MENGENANGABE_FEHLERHAFT ("ZEITLICHE_MENGENANGABE_FEHLERHAFT")
+  FALSCHER_BILANZIERUNGSBEGINN ("FALSCHER_BILANZIERUNGSBEGINN")
+  FALSCHES_NETZNUTZUNGSENDE ("FALSCHES_NETZNUTZUNGSENDE")
+  BILANZIERTE_MENGE_FEHLT ("BILANZIERTE_MENGE_FEHLT")
+  BILANZIERTE_MENGE_FALSCH ("BILANZIERTE_MENGE_FALSCH")
+  NETZNUTZUNGSABRECHNUNG_FEHLT ("NETZNUTZUNGSABRECHNUNG_FEHLT")
+  REVERSE_CHARGE_ANWENDUNG_FEHLT_ODER_FEHLERHAFT ("REVERSE_CHARGE_ANWENDUNG_FEHLT_ODER_FEHLERHAFT")
+  ALLOKATIONSLISTE_FEHLT ("ALLOKATIONSLISTE_FEHLT")
+  MEHR_MINDERMENGE_FALSCH ("MEHR_MINDERMENGE_FALSCH")
+  UNGUELTIGES_RECHNUNGSDATUM ("UNGUELTIGES_RECHNUNGSDATUM")
+  ZEITINTERVALL_DER_BILANZIERTEN_MENGE_INKONSISTENT ("ZEITINTERVALL_DER_BILANZIERTEN_MENGE_INKONSISTENT")
+  RECHNUNGSEMPFAENGER_WIDERSPRICHT_DER_STEUERRECHTLICHEN_EINSCHAETZUNG_DES_RECHNUNGSSTELLERS ("RECHNUNGSEMPFAENGER_WIDERSPRICHT_DER_STEUERRECHTLICHEN_EINSCHAETZUNG_DES_RECHNUNGSSTELLERS")
+  ANGEGEBENE_QUOTES_AN_MARKTLOKATION_NICHT_VORHANDEN ("ANGEGEBENE_QUOTES_AN_MARKTLOKATION_NICHT_VORHANDEN")
+  RECHNUNGSABWICKLUNG_NICHT_VEREINBART ("RECHNUNGSABWICKLUNG_NICHT_VEREINBART")
+  COMDIS_WIRD_ABGELEHNT ("COMDIS_WIRD_ABGELEHNT")
+}
+
+enum Abwicklungsmodell {
+  MODELL_1_BILANZIERUNG_AN_MARKTLOKATION ("MODELL_1_BILANZIERUNG_AN_MARKTLOKATION")
+  MODELL_2_BILANZIERUNG_IM_BILANZIERUNGSGEBIET ("MODELL_2_BILANZIERUNG_IM_BILANZIERUNGSGEBIET")
+}
+
+enum AenderungsmoeglichkeitKonfiguration {
+  ERFORDERLICH ("ERFORDERLICH")
+  NICHT_ERFORDERLICH ("NICHT_ERFORDERLICH")
+}
+
+enum Aggregationsverantwortung {
+  UENB ("UENB")
+  VNB ("VNB")
+}
+
+enum Anfragegrund {
+  ABGRENZUNG_VON_ENERGIEMENGEN ("ABGRENZUNG_VON_ENERGIEMENGEN")
+  ABGRENZUNG ("ABGRENZUNG")
+  WECHSELEREIGNIS ("WECHSELEREIGNIS")
+  ZWISCHENABLESUNG ("ZWISCHENABLESUNG")
+  DIREKTER_VERTRAG_MSB_AN ("DIREKTER_VERTRAG_MSB_AN")
+  DIREKTER_VERTRAG_MSB_ANN ("DIREKTER_VERTRAG_MSB_ANN")
+  AENDERUNG_IM_LOKATIONSBUENDEL ("AENDERUNG_IM_LOKATIONSBUENDEL")
+}
+
+enum Anfragekategorie {
+  PROZESSDATENBERICHT ("PROZESSDATENBERICHT")
+  GERAETEUEBERNAHME ("GERAETEUEBERNAHME")
+  WEITERVERPFLICHTUNG_BETRIEB_MELO ("WEITERVERPFLICHTUNG_BETRIEB_MELO")
+  AENDERUNG_MELO ("AENDERUNG_MELO")
+  STAMMDATEN_MALO_ODER_MELO ("STAMMDATEN_MALO_ODER_MELO")
+  BILANZIERTE_MENGE_MEHR_MINDER_MENGEN ("BILANZIERTE_MENGE_MEHR_MINDER_MENGEN")
+  ALLOKATIONSLISTE_MEHR_MINDER_MENGEN ("ALLOKATIONSLISTE_MEHR_MINDER_MENGEN")
+  ENERGIEMENGE_UND_LEISTUNGSMAXIMUM ("ENERGIEMENGE_UND_LEISTUNGSMAXIMUM")
+  ABRECHNUNG_MESSSTELLENBETRIEB_MSB_AN_LF ("ABRECHNUNG_MESSSTELLENBETRIEB_MSB_AN_LF")
+  AENDERUNG_PROGNOSEGRUNDLAGE_GERAETEKONFIGURATION ("AENDERUNG_PROGNOSEGRUNDLAGE_GERAETEKONFIGURATION")
+  AENDERUNG_GERAETEKONFIGURATION ("AENDERUNG_GERAETEKONFIGURATION")
+  REKLAMATION_VON_WERTEN ("REKLAMATION_VON_WERTEN")
+  LASTGANG_MALO_TRANCHE ("LASTGANG_MALO_TRANCHE")
+  SPERRUNG ("SPERRUNG")
+  ENTSPERRUNG ("ENTSPERRUNG")
+  REKLAMATION_ZAEHLZEITDEFINITION ("REKLAMATION_ZAEHLZEITDEFINITION")
+  ZEITREIHEN_IM_RAHMEN_BILANZKREISABRECHNUNG ("ZEITREIHEN_IM_RAHMEN_BILANZKREISABRECHNUNG")
+  GERAETEWECHSELABSICHT ("GERAETEWECHSELABSICHT")
+  AENDERUNG_KONZESSIONSABGABE ("AENDERUNG_KONZESSIONSABGABE")
+  AENDERUNG_ZAEHLZEITDEFINITION ("AENDERUNG_ZAEHLZEITDEFINITION")
+  UEBERMITTLUNG_WERTE_AN_ESA ("UEBERMITTLUNG_WERTE_AN_ESA")
+  AENDERUNG ("AENDERUNG")
+  BILANZKREISZUORDNUNGSLISTE ("BILANZKREISZUORDNUNGSLISTE")
+  CLEARINGLISTE ("CLEARINGLISTE")
+  NORMIERTES_PROFIL_PROFILSCHAR ("NORMIERTES_PROFIL_PROFILSCHAR")
+  REDISPATCH_EINZELZEITREIHE_AUSFALLARBEIT ("REDISPATCH_EINZELZEITREIHE_AUSFALLARBEIT")
+  REKLAMATION_PROFIL_PROFILSCHAR ("REKLAMATION_PROFIL_PROFILSCHAR")
+  STAMMDATEN_MALO ("STAMMDATEN_MALO")
+  STAMMDATEN_MELO ("STAMMDATEN_MELO")
+  STAMMDATEN_TRANCHE ("STAMMDATEN_TRANCHE")
+  BEENDIGUNG_EINER_KONFIGURATION ("BEENDIGUNG_EINER_KONFIGURATION")
+  BESTELLUNG_EINER_KONFIGURATION ("BESTELLUNG_EINER_KONFIGURATION")
+  BESTELLUNG_EINES_ANGEBOTS_EINER_KONFIGURATION ("BESTELLUNG_EINES_ANGEBOTS_EINER_KONFIGURATION")
+  REKLAMATION_EINER_KONFIGURATION ("REKLAMATION_EINER_KONFIGURATION")
+  BESTELLUNG_AENDERUNG_NETZENTGELTE_NETZORIENTIERTER_STEUERUNGSMOEGLICHKEIT ("BESTELLUNG_AENDERUNG_NETZENTGELTE_NETZORIENTIERTER_STEUERUNGSMOEGLICHKEIT")
+}
+
+enum Anfragetyp {
+  KAUF ("KAUF")
+  NUTZUNGSUEBERLASSUNG ("NUTZUNGSUEBERLASSUNG")
+  ABRECHNUNGSBRENNWERT_UND_ZUSTANDSZAHL ("ABRECHNUNGSBRENNWERT_UND_ZUSTANDSZAHL")
+  LASTGANGDATEN ("LASTGANGDATEN")
+  ZAEHLERSTAENDE ("ZAEHLERSTAENDE")
+  WERTEERMITTLUNG ("WERTEERMITTLUNG")
+  ENERGIEMENGE_EINZELWERT ("ENERGIEMENGE_EINZELWERT")
+  INNERHALB_DER_ARBEITSZEIT ("INNERHALB_DER_ARBEITSZEIT")
+  AUCH_AUSSERHALB_DER_ARBEITSZEIT ("AUCH_AUSSERHALB_DER_ARBEITSZEIT")
+  WECHSEL_SAEMTLICHER_EINRICHTUNGEN ("WECHSEL_SAEMTLICHER_EINRICHTUNGEN")
+  TEILWEISER_WECHSEL ("TEILWEISER_WECHSEL")
+  AENDERUNG_ZAEHLZEITDEFINITION ("AENDERUNG_ZAEHLZEITDEFINITION")
+  ABBESTELLUNG_ZAEHLZEITEN ("ABBESTELLUNG_ZAEHLZEITEN")
+  ABBESTELLUNG_MESSPRODUKT ("ABBESTELLUNG_MESSPRODUKT")
+  ANGEBOT_AUF_BASIS_PREISBLATT ("ANGEBOT_AUF_BASIS_PREISBLATT")
+  INDIVIDUELLES_ANGEBOT ("INDIVIDUELLES_ANGEBOT")
+  AENDERUNG_KONFIGURATION ("AENDERUNG_KONFIGURATION")
+  KANN_NICHT_ANGEBOTEN_WERDEN ("KANN_NICHT_ANGEBOTEN_WERDEN")
+  NEUKONFIGURATION ("NEUKONFIGURATION")
+}
+
+enum Angebotsstatus {
+  KONZEPTION ("KONZEPTION")
+  UNVERBINDLICH ("UNVERBINDLICH")
+  VERBINDLICH ("VERBINDLICH")
+  BEAUFTRAGT ("BEAUFTRAGT")
+  UNGUELTIG ("UNGUELTIG")
+  ABGELEHNT ("ABGELEHNT")
+  NACHGEFASST ("NACHGEFASST")
+  AUSSTEHEND ("AUSSTEHEND")
+  ERLEDIGT ("ERLEDIGT")
+}
+
+enum ArithmetischeOperation {
+  ADDITION ("ADDITION")
+  SUBTRAKTION ("SUBTRAKTION")
+  DIVISION ("DIVISION")
+  DIVIDEND ("DIVIDEND")
+  MULTIPLIKATION ("MULTIPLIKATION")
+  POSITIVWERT ("POSITIVWERT")
+}
+
+enum ArtEmobilitaet {
+  WB ("WB")
+  LS ("LS")
+  LP ("LP")
+}
+
+enum ArtikelIdTyp {
+  ARTIKELID ("ARTIKELID")
+  GRUPPENARTIKELID ("GRUPPENARTIKELID")
+}
+
+enum AufAbschlagstyp {
+  RELATIV ("RELATIV")
+  ABSOLUT ("ABSOLUT")
+}
+
+enum Auftragsstatus {
+  GESCHEITERT ("GESCHEITERT")
+  ERFOLGREICH ("ERFOLGREICH")
+  LIEFERUNG_GEPLANT ("LIEFERUNG_GEPLANT")
+  GEPLANT ("GEPLANT")
+  ZUGESTIMMT ("ZUGESTIMMT")
+  WIDERSPROCHEN ("WIDERSPROCHEN")
+  STOERUNGSFREI ("STOERUNGSFREI")
+  GESTOERT ("GESTOERT")
+  FESTGESTELLTE_STOERUNG ("FESTGESTELLTE_STOERUNG")
+  VERMUTETE_STOERUNG ("VERMUTETE_STOERUNG")
+  ABGELEHNT ("ABGELEHNT")
+  BEENDET ("BEENDET")
+  ANTWORT_DRITTER ("ANTWORT_DRITTER")
+  BESTAETIGT ("BESTAETIGT")
+  UMGESETZT ("UMGESETZT")
+  ENFG_STROMSPEICHER_UND_VERLUSTENERGIE ("ENFG_STROMSPEICHER_UND_VERLUSTENERGIE")
+  ENFG_ELEKTRISCH_ANGETRIEBENE_WAERMEPUMPEN ("ENFG_ELEKTRISCH_ANGETRIEBENE_WAERMEPUMPEN")
+  ENFG_UMLAGEERHEBUNG_BEI_ANLAGEN_ZUR_VERSTROMUNG_VON_KUPPELGASEN ("ENFG_UMLAGEERHEBUNG_BEI_ANLAGEN_ZUR_VERSTROMUNG_VON_KUPPELGASEN")
+  ENFG_HERSTELLUNG_VON_GRUENEN_WASSERSTOFF ("ENFG_HERSTELLUNG_VON_GRUENEN_WASSERSTOFF")
+  ENFG_STROMKOSTENINTENSIVE_UNTERNEHMEN ("ENFG_STROMKOSTENINTENSIVE_UNTERNEHMEN")
+  ENFG_HERSTELLUNG_VON_WASSERSTOFF_IN_STROMKOSTENINTENSIVEN_UNTERNEHMEN ("ENFG_HERSTELLUNG_VON_WASSERSTOFF_IN_STROMKOSTENINTENSIVEN_UNTERNEHMEN")
+  ENFG_SCHIENENBAHNEN ("ENFG_SCHIENENBAHNEN")
+  ENFG_ELEKTRISCHE_BETRIEBENE_BUSSEN_IM_LINIENVERKEHR ("ENFG_ELEKTRISCHE_BETRIEBENE_BUSSEN_IM_LINIENVERKEHR")
+  ENFG_LANDSTROMANLAGEN ("ENFG_LANDSTROMANLAGEN")
+}
+
+enum AvisTyp {
+  ABGELEHNTE_FORDERUNG ("ABGELEHNTE_FORDERUNG")
+  ZAHLUNGSAVIS ("ZAHLUNGSAVIS")
+}
+
+enum BankverbindungVerwendungszweck {
+  BV_ZAHLUNG_NNA ("BV_ZAHLUNG_NNA")
+  BV_ZAHLUNG_MMMA ("BV_ZAHLUNG_MMMA")
+  BV_ZAHLUNG_MSB_ABRECHNNUNG ("BV_ZAHLUNG_MSB_ABRECHNNUNG")
+  BV_ZAHLUNG_ENT_SPERREN_ABRECHNUNG ("BV_ZAHLUNG_ENT_SPERREN_ABRECHNUNG")
+  BV_SONSTIGE ("BV_SONSTIGE")
+}
+
+enum BDEWArtikelnummer {
+  LEISTUNG ("LEISTUNG")
+  LEISTUNG_PAUSCHAL ("LEISTUNG_PAUSCHAL")
+  GRUNDPREIS ("GRUNDPREIS")
+  REGELENERGIE_ARBEIT ("REGELENERGIE_ARBEIT")
+  REGELENERGIE_LEISTUNG ("REGELENERGIE_LEISTUNG")
+  NOTSTROMLIEFERUNG_ARBEIT ("NOTSTROMLIEFERUNG_ARBEIT")
+  NOTSTROMLIEFERUNG_LEISTUNG ("NOTSTROMLIEFERUNG_LEISTUNG")
+  RESERVENETZKAPAZITAET ("RESERVENETZKAPAZITAET")
+  RESERVELEISTUNG ("RESERVELEISTUNG")
+  ZUSAETZLICHE_ABLESUNG ("ZUSAETZLICHE_ABLESUNG")
+  PRUEFGEBUEHREN_AUSSERPLANMAESSIG ("PRUEFGEBUEHREN_AUSSERPLANMAESSIG")
+  WIRKARBEIT ("WIRKARBEIT")
+  SINGULAER_GENUTZTE_BETRIEBSMITTEL ("SINGULAER_GENUTZTE_BETRIEBSMITTEL")
+  ABGABE_KWKG ("ABGABE_KWKG")
+  ABSCHLAG ("ABSCHLAG")
+  KONZESSIONSABGABE ("KONZESSIONSABGABE")
+  ENTGELT_FERNAUSLESUNG ("ENTGELT_FERNAUSLESUNG")
+  UNTERMESSUNG ("UNTERMESSUNG")
+  BLINDMEHRARBEIT ("BLINDMEHRARBEIT")
+  ENTGELT_ABRECHNUNG ("ENTGELT_ABRECHNUNG")
+  SPERRKOSTEN ("SPERRKOSTEN")
+  ENTSPERRKOSTEN ("ENTSPERRKOSTEN")
+  MAHNKOSTEN ("MAHNKOSTEN")
+  MEHR_MINDERMENGEN ("MEHR_MINDERMENGEN")
+  INKASSOKOSTEN ("INKASSOKOSTEN")
+  BLINDMEHRLEISTUNG ("BLINDMEHRLEISTUNG")
+  ENTGELT_MESSUNG_ABLESUNG ("ENTGELT_MESSUNG_ABLESUNG")
+  ENTGELT_EINBAU_BETRIEB_WARTUNG_MESSTECHNIK ("ENTGELT_EINBAU_BETRIEB_WARTUNG_MESSTECHNIK")
+  AUSGLEICHSENERGIE ("AUSGLEICHSENERGIE")
+  AUSGLEICHSENERGIE_UNTERDECKUNG ("AUSGLEICHSENERGIE_UNTERDECKUNG")
+  ZAEHLEINRICHTUNG ("ZAEHLEINRICHTUNG")
+  WANDLER_MENGENUMWERTER ("WANDLER_MENGENUMWERTER")
+  KOMMUNIKATIONSEINRICHTUNG ("KOMMUNIKATIONSEINRICHTUNG")
+  TECHNISCHE_STEUEREINRICHTUNG ("TECHNISCHE_STEUEREINRICHTUNG")
+  PARAGRAF_19_STROM_NEV_UMLAGE ("PARAGRAF_19_STROM_NEV_UMLAGE")
+  BEFESTIGUNGSEINRICHTUNG ("BEFESTIGUNGSEINRICHTUNG")
+  OFFSHORE_HAFTUNGSUMLAGE ("OFFSHORE_HAFTUNGSUMLAGE")
+  FIXE_ARBEITSENTGELTKOMPONENTE ("FIXE_ARBEITSENTGELTKOMPONENTE")
+  FIXE_LEISTUNGSENTGELTKOMPONENTE ("FIXE_LEISTUNGSENTGELTKOMPONENTE")
+  UMLAGE_ABSCHALTBARE_LASTEN ("UMLAGE_ABSCHALTBARE_LASTEN")
+  MEHRMENGE ("MEHRMENGE")
+  MINDERMENGE ("MINDERMENGE")
+  ENERGIESTEUER ("ENERGIESTEUER")
+  SMARTMETER_GATEWAY ("SMARTMETER_GATEWAY")
+  STEUERBOX ("STEUERBOX")
+  MSB_INKL_MESSUNG ("MSB_INKL_MESSUNG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_1_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_1_MSBG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_2_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_2_MSBG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_3_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_3_MSBG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_4_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_4_MSBG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_5_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_2_5_MSBG")
+  ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_3_MSBG ("ZUSATZDIENSTLEISTUNG_PARAGRAPH_35_3_MSBG")
+  ENTGELT_KAPAZITAETEN ("ENTGELT_KAPAZITAETEN")
+}
+
+enum BeauftragungMsb {
+  VERTRAG_AN_MSB ("VERTRAG_AN_MSB")
+  VERTRAGSBEENDIGUNG_MSB ("VERTRAGSBEENDIGUNG_MSB")
+}
+
+enum Befestigungsart {
+  STECKTECHNIK ("STECKTECHNIK")
+  DREIPUNKT ("DREIPUNKT")
+  HUTSCHIENE ("HUTSCHIENE")
+  EINSTUTZEN ("EINSTUTZEN")
+  ZWEISTUTZEN ("ZWEISTUTZEN")
+}
+
+enum Bemessungsgroesse {
+  WIRKARBEIT_EL ("WIRKARBEIT_EL")
+  LEISTUNG_EL ("LEISTUNG_EL")
+  BLINDARBEIT_KAP ("BLINDARBEIT_KAP")
+  BLINDARBEIT_IND ("BLINDARBEIT_IND")
+  BLINDLEISTUNG_KAP ("BLINDLEISTUNG_KAP")
+  BLINDLEISTUNG_IND ("BLINDLEISTUNG_IND")
+  WIRKARBEIT_TH ("WIRKARBEIT_TH")
+  LEISTUNG_TH ("LEISTUNG_TH")
+  VOLUMEN ("VOLUMEN")
+  VOLUMENSTROM ("VOLUMENSTROM")
+  BENUTZUNGSDAUER ("BENUTZUNGSDAUER")
+  ANZAHL ("ANZAHL")
+}
+
+enum BerechnungsformelNotwendigkeit {
+  BERECHNUNGSFORMEL_NOTWENDIG ("BERECHNUNGSFORMEL_NOTWENDIG")
+  BERECHNUNGSFORMEL_MUSS_ANGEFRAGT_WERDEN ("BERECHNUNGSFORMEL_MUSS_ANGEFRAGT_WERDEN")
+  BERECHNUNGSFORMEL_TRIVIAL ("BERECHNUNGSFORMEL_TRIVIAL")
+  BERECHNUNGSFORMEL_NICHT_NOTWENDIG ("BERECHNUNGSFORMEL_NICHT_NOTWENDIG")
+}
+
+enum BerichtStatus {
+  ERFOLGREICH ("ERFOLGREICH")
+  FEHLER ("FEHLER")
+}
+
+enum Betriebszustand {
+  GESPERRT_NICHT_ENTSPERREN ("GESPERRT_NICHT_ENTSPERREN")
+  GESPERRT ("GESPERRT")
+  REGELBETRIEB ("REGELBETRIEB")
+}
+
+enum Bilanzierungsmethode {
+  RLM ("RLM")
+  SLP ("SLP")
+  TLP_GEMEINSAM ("TLP_GEMEINSAM")
+  TLP_GETRENNT ("TLP_GETRENNT")
+  PAUSCHAL ("PAUSCHAL")
+  IMS ("IMS")
+}
+
+enum Bilanzkreiszuordnung {
+  ERFOLGREICH ("ERFOLGREICH")
+  GESCHEITERT ("GESCHEITERT")
+}
+
+enum BildungTranchengroesse {
+  PROZENTUAL ("PROZENTUAL")
+  AUFTEILUNGSFAKTOR ("AUFTEILUNGSFAKTOR")
+}
+
+enum BOTyp {
+  ANSPRECHPARTNER ("ANSPRECHPARTNER")
+  AVIS ("AVIS")
+  ENERGIEMENGE ("ENERGIEMENGE")
+  GESCHAEFTSOBJEKT ("GESCHAEFTSOBJEKT")
+  GESCHAEFTSPARTNER ("GESCHAEFTSPARTNER")
+  MARKTLOKATION ("MARKTLOKATION")
+  MARKTTEILNEHMER ("MARKTTEILNEHMER")
+  MESSLOKATION ("MESSLOKATION")
+  ZAEHLER ("ZAEHLER")
+  KOSTEN ("KOSTEN")
+  TARIF ("TARIF")
+  PREISBLATT ("PREISBLATT")
+  PREISBLATTNETZNUTZUNG ("PREISBLATTNETZNUTZUNG")
+  PREISBLATTMESSUNG ("PREISBLATTMESSUNG")
+  PREISBLATTUMLAGEN ("PREISBLATTUMLAGEN")
+  PREISBLATTDIENSTLEISTUNG ("PREISBLATTDIENSTLEISTUNG")
+  PREISBLATTKONZESSIONSABGABE ("PREISBLATTKONZESSIONSABGABE")
+  ZEITREIHE ("ZEITREIHE")
+  LASTGANG ("LASTGANG")
+  HANDELSUNSTIMMIGKEIT ("HANDELSUNSTIMMIGKEIT")
+  ANFRAGE ("ANFRAGE")
+  AUFTRAG ("AUFTRAG")
+  STATUSMITTEILUNG ("STATUSMITTEILUNG")
+  BERECHNUNGSFORMEL ("BERECHNUNGSFORMEL")
+  RECHNUNG ("RECHNUNG")
+  BILANZIERUNG ("BILANZIERUNG")
+  NETZNUTZUNGSVERTRAG ("NETZNUTZUNGSVERTRAG")
+  MESSSTELLENBETRIEBSVERTRAG ("MESSSTELLENBETRIEBSVERTRAG")
+  ENERGIELIEFERVERTRAG ("ENERGIELIEFERVERTRAG")
+  SPERRAUFTRAG ("SPERRAUFTRAG")
+  ANGEBOT ("ANGEBOT")
+  TRANCHE ("TRANCHE")
+  KOMMUNIKATIONSDATEN ("KOMMUNIKATIONSDATEN")
+  ZAEHLZEITDEFINITION ("ZAEHLZEITDEFINITION")
+  SCHALTZEITDEFINITION ("SCHALTZEITDEFINITION")
+  LEISTUNGSKURVENDEFINITION ("LEISTUNGSKURVENDEFINITION")
+  NETZLOKATION ("NETZLOKATION")
+  STEUERBARE_RESSOURCE ("STEUERBARE_RESSOURCE")
+  TECHNISCHE_RESSOURCE ("TECHNISCHE_RESSOURCE")
+  AD_HOC_STEUERKANAL ("AD_HOC_STEUERKANAL")
+  LOKATIONSBUENDEL ("LOKATIONSBUENDEL")
+  WERTE_NACH_TYP2 ("WERTE_NACH_TYP2")
+  REKLAMATION ("REKLAMATION")
+  STATUSBERICHT ("STATUSBERICHT")
+  VERTRAG ("VERTRAG")
+  BILANZKREIS ("BILANZKREIS")
+  VERWENDUNGSZEITRAUM ("VERWENDUNGSZEITRAUM")
+}
+
+enum Datenqualitaet {
+  DATEN ("DATEN")
+  ERWARTETE_DATEN ("ERWARTETE_DATEN")
+  IM_SYSTEM_VORHANDENE_DATEN ("IM_SYSTEM_VORHANDENE_DATEN")
+  INFORMATIVE_DATEN ("INFORMATIVE_DATEN")
+}
+
+enum DefinitionenNotwendigkeit {
+  ZAEHLZEITDEFINITIONEN_WERDEN_VERWENDET ("ZAEHLZEITDEFINITIONEN_WERDEN_VERWENDET")
+  ZAEHLZEITDEFINITIONEN_WERDEN_NICHT_VERWENDET ("ZAEHLZEITDEFINITIONEN_WERDEN_NICHT_VERWENDET")
+  DEFINITIONEN_WERDEN_VERWENDET ("DEFINITIONEN_WERDEN_VERWENDET")
+  DEFINITIONEN_WERDEN_NICHT_VERWENDET ("DEFINITIONEN_WERDEN_NICHT_VERWENDET")
+}
+
+enum DefinitionsTyp {
+  ZAEHLZEIT ("ZAEHLZEIT")
+  SCHALTZEIT ("SCHALTZEIT")
+  LEISTUNGSKURVEN ("LEISTUNGSKURVEN")
+}
+
+enum Dienstleistungstyp {
+  DATENBEREITSTELLUNG_TAEGLICH ("DATENBEREITSTELLUNG_TAEGLICH")
+  DATENBEREITSTELLUNG_WOECHENTLICH ("DATENBEREITSTELLUNG_WOECHENTLICH")
+  DATENBEREITSTELLUNG_MONATLICH ("DATENBEREITSTELLUNG_MONATLICH")
+  DATENBEREITSTELLUNG_JAEHRLICH ("DATENBEREITSTELLUNG_JAEHRLICH")
+  DATENBEREITSTELLUNG_HISTORISCHE_LG ("DATENBEREITSTELLUNG_HISTORISCHE_LG")
+  DATENBEREITSTELLUNG_STUENDLICH ("DATENBEREITSTELLUNG_STUENDLICH")
+  DATENBEREITSTELLUNG_VIERTELJAEHRLICH ("DATENBEREITSTELLUNG_VIERTELJAEHRLICH")
+  DATENBEREITSTELLUNG_HALBJAEHRLICH ("DATENBEREITSTELLUNG_HALBJAEHRLICH")
+  DATENBEREITSTELLUNG_MONATLICH_ZUSAETZLICH ("DATENBEREITSTELLUNG_MONATLICH_ZUSAETZLICH")
+  DATENBEREITSTELLUNG_EINMALIG ("DATENBEREITSTELLUNG_EINMALIG")
+  AUSLESUNG_2X_TAEGLICH_FERNAUSLESUNG ("AUSLESUNG_2X_TAEGLICH_FERNAUSLESUNG")
+  AUSLESUNG_TAEGLICH_FERNAUSLESUNG ("AUSLESUNG_TAEGLICH_FERNAUSLESUNG")
+  AUSLESUNG_LGK_MANUELL_MSB ("AUSLESUNG_LGK_MANUELL_MSB")
+  AUSLESUNG_MONATLICH_SLP_FERNAUSLESUNG ("AUSLESUNG_MONATLICH_SLP_FERNAUSLESUNG")
+  AUSLESUNG_JAEHRLICH_SLP_FERNAUSLESUNG ("AUSLESUNG_JAEHRLICH_SLP_FERNAUSLESUNG")
+  AUSLESUNG_MDE_SLP ("AUSLESUNG_MDE_SLP")
+  ABLESUNG_MONATLICH_SLP ("ABLESUNG_MONATLICH_SLP")
+  ABLESUNG_VIERTELJAEHRLICH_SLP ("ABLESUNG_VIERTELJAEHRLICH_SLP")
+  ABLESUNG_HALBJAEHRLICH_SLP ("ABLESUNG_HALBJAEHRLICH_SLP")
+  ABLESUNG_JAEHRLICH_SLP ("ABLESUNG_JAEHRLICH_SLP")
+  AUSLESUNG_SLP_FERNAUSLESUNG ("AUSLESUNG_SLP_FERNAUSLESUNG")
+  ABLESUNG_SLP_ZUSAETZLICH_MSB ("ABLESUNG_SLP_ZUSAETZLICH_MSB")
+  ABLESUNG_SLP_ZUSAETZLICH_KUNDE ("ABLESUNG_SLP_ZUSAETZLICH_KUNDE")
+  AUSLESUNG_LGK_FERNAUSLESUNG_ZUSAETZLICH_MSB ("AUSLESUNG_LGK_FERNAUSLESUNG_ZUSAETZLICH_MSB")
+  AUSLESUNG_MOATLICH_FERNAUSLESUNG ("AUSLESUNG_MOATLICH_FERNAUSLESUNG")
+  AUSLESUNG_STUENDLICH_FERNAUSLESUNG ("AUSLESUNG_STUENDLICH_FERNAUSLESUNG")
+  ABLESUNG_MONATLICH_LGK ("ABLESUNG_MONATLICH_LGK")
+  AUSLESUNG_TEMERATURMENGENUMWERTER ("AUSLESUNG_TEMERATURMENGENUMWERTER")
+  AUSLESUNG_ZUSTANDSMENGENUMWERTER ("AUSLESUNG_ZUSTANDSMENGENUMWERTER")
+  AUSLESUNG_SYSTEMMENGENUMWERTER ("AUSLESUNG_SYSTEMMENGENUMWERTER")
+  AUSLESUNG_VORGANG_SLP ("AUSLESUNG_VORGANG_SLP")
+  AUSLESUUNG_KOMPAKTMENGENUMWERTER ("AUSLESUUNG_KOMPAKTMENGENUMWERTER")
+  AUSLESUNG_MDE_LGK ("AUSLESUNG_MDE_LGK")
+  SPERRUNG_SLP ("SPERRUNG_SLP")
+  ENTSPERRUNG_SLP ("ENTSPERRUNG_SLP")
+  SPERRUNG_RLM ("SPERRUNG_RLM")
+  ENTSPERRUNG_RLM ("ENTSPERRUNG_RLM")
+  MAHNKOSTEN ("MAHNKOSTEN")
+  INKASSOKOSTEN ("INKASSOKOSTEN")
+}
+
+enum Energieerfassung {
+  SEPARAT_ERFASSEN ("SEPARAT_ERFASSEN")
+  NICHT_SEPARAT_ERFASSEN ("NICHT_SEPARAT_ERFASSEN")
+}
+
+enum Energierichtung {
+  AUSSP ("AUSSP")
+  EINSP ("EINSP")
+}
+
+enum ErmittlungLeistungsmaximum {
+  VERWENDUNG_HOCHLASTFENSTER ("VERWENDUNG_HOCHLASTFENSTER")
+  KEINE_VERWENDUNG_HOCHLASTFENSTER ("KEINE_VERWENDUNG_HOCHLASTFENSTER")
+}
+
+enum Erzeugungsart {
+  EEG ("EEG")
+  KWK ("KWK")
+  EEG_DV ("EEG_DV")
+  KWK_DV ("KWK_DV")
+  WIND ("WIND")
+  SOLAR ("SOLAR")
+  KERNKRAFT ("KERNKRAFT")
+  WASSER ("WASSER")
+  GEOTHERMIE ("GEOTHERMIE")
+  BIOMASSE ("BIOMASSE")
+  KOHLE ("KOHLE")
+  GAS ("GAS")
+  SONSTIGE ("SONSTIGE")
+  SONSTIGE_EEG ("SONSTIGE_EEG")
+  SONSTIGE_ERZEUGUNGSART ("SONSTIGE_ERZEUGUNGSART")
+}
+
+enum Fallgruppenzuordnung {
+  GABI_RLMmT ("GABI_RLMmT")
+  GABI_RLMoT ("GABI_RLMoT")
+  GABI_RLMNEV ("GABI_RLMNEV")
+}
+
+enum FehlerCode {
+  ID_UNBEKANNT ("ID_UNBEKANNT")
+  ABSENDER_NICHT_ZUGEORDNET ("ABSENDER_NICHT_ZUGEORDNET")
+  EMPFAENGER_NICHT_ZUGEORDNET ("EMPFAENGER_NICHT_ZUGEORDNET")
+  GERAET_UNBEKANNT ("GERAET_UNBEKANNT")
+  OBIS_UNBEKANNT ("OBIS_UNBEKANNT")
+  REFERENZIERUNG_FEHLERHAFT ("REFERENZIERUNG_FEHLERHAFT")
+  TUPEL_UNBEKANNT ("TUPEL_UNBEKANNT")
+  ABSENDER_TUPEL_NICHT_ZUGEORDNET ("ABSENDER_TUPEL_NICHT_ZUGEORDNET")
+  EMPFAENGER_TUPEL_NICHT_ZUGEORDNET ("EMPFAENGER_TUPEL_NICHT_ZUGEORDNET")
+  VORKOMMA_ZU_VIELE_STELLEN ("VORKOMMA_ZU_VIELE_STELLEN")
+  ZEITREIHE_UNVOLLSTAENDIG ("ZEITREIHE_UNVOLLSTAENDIG")
+  REFERENZIERTES_TUPEL_UNBEKANNT ("REFERENZIERTES_TUPEL_UNBEKANNT")
+  MARKTLOKATION_UNBEKANNT ("MARKTLOKATION_UNBEKANNT")
+  MESSLOKATION_UNBEKANNT ("MESSLOKATION_UNBEKANNT")
+  MELDEPUNKT_NICHT_MEHR_IM_NETZ ("MELDEPUNKT_NICHT_MEHR_IM_NETZ")
+  ERFORDERLICHE_ANGABE_FEHLT ("ERFORDERLICHE_ANGABE_FEHLT")
+  GESCHAEFTSVORFALL_ZURUECKGEWIESEN ("GESCHAEFTSVORFALL_ZURUECKGEWIESEN")
+  ZEITINTERVALL_NEGATIV ("ZEITINTERVALL_NEGATIV")
+  FORMAT_NICHT_EINGEHALTEN ("FORMAT_NICHT_EINGEHALTEN")
+  GESCHAEFTSVORFALL_ABSENDER ("GESCHAEFTSVORFALL_ABSENDER")
+  KONFIGURATIONSID_UNBEKANNT ("KONFIGURATIONSID_UNBEKANNT")
+  SEGMENTWIEDERHOLUNG_UEBERSCHRITTEN ("SEGMENTWIEDERHOLUNG_UEBERSCHRITTEN")
+  ANZAHLCODES_UEBERSCHRITTEN ("ANZAHLCODES_UEBERSCHRITTEN")
+  ZEITANGABE_UNPLAUSIBEL ("ZEITANGABE_UNPLAUSIBEL")
+  CODE_NICHT_ERLAUBT ("CODE_NICHT_ERLAUBT")
+  OBJEKT_NICHT_GEFUNDEN ("OBJEKT_NICHT_GEFUNDEN")
+  OBJEKT_NICHT_EINDEUTIG ("OBJEKT_NICHT_EINDEUTIG")
+}
+
+enum FehlerTyp {
+  VERARBEITUNG ("VERARBEITUNG")
+  SYNTAX ("SYNTAX")
+}
+
+enum Fernschaltung {
+  VORHANDEN ("VORHANDEN")
+  NICHT_VORHANDEN ("NICHT_VORHANDEN")
+}
+
+enum Fernsteuerbarkeit {
+  TECHNISCH_NICHT_FERNSTEUERBAR ("TECHNISCH_NICHT_FERNSTEUERBAR")
+  TECHNISCH_FERNSTEUERBAR ("TECHNISCH_FERNSTEUERBAR")
+  DURCH_LF_FERNSTEUERBAR ("DURCH_LF_FERNSTEUERBAR")
+}
+
+enum Gasqualitaet {
+  H_GAS ("H_GAS")
+  L_GAS ("L_GAS")
+}
+
+enum Gebiettyp {
+  REGELZONE ("REGELZONE")
+  MARKTGEBIET ("MARKTGEBIET")
+  BILANZIERUNGSGEBIET ("BILANZIERUNGSGEBIET")
+  VERTEILNETZ ("VERTEILNETZ")
+  TRANSPORTNETZ ("TRANSPORTNETZ")
+  REGIONALNETZ ("REGIONALNETZ")
+  AREALNETZ ("AREALNETZ")
+  GRUNDVERSORGUNGSGEBIET ("GRUNDVERSORGUNGSGEBIET")
+  VERSORGUNGSGEBIET ("VERSORGUNGSGEBIET")
+}
+
+enum Geraetemerkmal {
+  EINTARIF ("EINTARIF")
+  ZWEITARIF ("ZWEITARIF")
+  MEHRTARIF ("MEHRTARIF")
+  GAS_G2P5 ("GAS_G2P5")
+  GAS_G4 ("GAS_G4")
+  GAS_G6 ("GAS_G6")
+  GAS_G10 ("GAS_G10")
+  GAS_G16 ("GAS_G16")
+  GAS_G25 ("GAS_G25")
+  GAS_G40 ("GAS_G40")
+  GAS_G65 ("GAS_G65")
+  GAS_G100 ("GAS_G100")
+  GAS_G160 ("GAS_G160")
+  GAS_G250 ("GAS_G250")
+  GAS_G350 ("GAS_G350")
+  GAS_G400 ("GAS_G400")
+  GAS_G4000 ("GAS_G4000")
+  GAS_G650 ("GAS_G650")
+  GAS_G6500 ("GAS_G6500")
+  GAS_G1000 ("GAS_G1000")
+  GAS_G10000 ("GAS_G10000")
+  GAS_G12500 ("GAS_G12500")
+  GAS_G1600 ("GAS_G1600")
+  GAS_G16000 ("GAS_G16000")
+  GAS_G2500 ("GAS_G2500")
+  IMPULSGEBER_G4_G100 ("IMPULSGEBER_G4_G100")
+  IMPULSGEBER_G100 ("IMPULSGEBER_G100")
+  MODEM_GSM ("MODEM_GSM")
+  MODEM_GPRS ("MODEM_GPRS")
+  MODEM_FUNK ("MODEM_FUNK")
+  MODEM_GSM_O_LG ("MODEM_GSM_O_LG")
+  MODEM_GSM_M_LG ("MODEM_GSM_M_LG")
+  MODEM_FESTNETZ ("MODEM_FESTNETZ")
+  MODEM_GPRS_M_LG ("MODEM_GPRS_M_LG")
+  PLC_COM ("PLC_COM")
+  ETHERNET_KOM ("ETHERNET_KOM")
+  DSL_KOM ("DSL_KOM")
+  LTE_KOM ("LTE_KOM")
+  RUNDSTEUEREMPFAENGER ("RUNDSTEUEREMPFAENGER")
+  TARIFSCHALTGERAET ("TARIFSCHALTGERAET")
+  ZUSTANDS_MU ("ZUSTANDS_MU")
+  TEMPERATUR_MU ("TEMPERATUR_MU")
+  KOMPAKT_MU ("KOMPAKT_MU")
+  SYSTEM_MU ("SYSTEM_MU")
+  UNBESTIMMT ("UNBESTIMMT")
+  WASSER_MWZW ("WASSER_MWZW")
+  WASSER_WZWW ("WASSER_WZWW")
+  WASSER_WZ01 ("WASSER_WZ01")
+  WASSER_WZ02 ("WASSER_WZ02")
+  WASSER_WZ03 ("WASSER_WZ03")
+  WASSER_WZ04 ("WASSER_WZ04")
+  WASSER_WZ05 ("WASSER_WZ05")
+  WASSER_WZ06 ("WASSER_WZ06")
+  WASSER_WZ07 ("WASSER_WZ07")
+  WASSER_WZ08 ("WASSER_WZ08")
+  WASSER_WZ09 ("WASSER_WZ09")
+  WASSER_WZ10 ("WASSER_WZ10")
+  WASSER_VWZ04 ("WASSER_VWZ04")
+  WASSER_VWZ05 ("WASSER_VWZ05")
+  WASSER_VWZ06 ("WASSER_VWZ06")
+  WASSER_VWZ07 ("WASSER_VWZ07")
+  WASSER_VWZ10 ("WASSER_VWZ10")
+  DICHTEMENGENUMWERTER ("DICHTEMENGENUMWERTER")
+  TEMPERATURMENGENUMWERTER ("TEMPERATURMENGENUMWERTER")
+  ZUSTANDSMENGENUMWERTER ("ZUSTANDSMENGENUMWERTER")
+  BLOCKSTROMWANDLER ("BLOCKSTROMWANDLER")
+  MESSWANDLERSATZ_IMS_MME ("MESSWANDLERSATZ_IMS_MME")
+  KOMBIMESSWANDLER ("KOMBIMESSWANDLER")
+  SPANNUNGSWANDLER ("SPANNUNGSWANDLER")
+}
+
+enum Geraetetyp {
+  WECHSELSTROMZAEHLER ("WECHSELSTROMZAEHLER")
+  DREHSTROMZAEHLER ("DREHSTROMZAEHLER")
+  ZWEIRICHTUNGSZAEHLER ("ZWEIRICHTUNGSZAEHLER")
+  RLM_ZAEHLER ("RLM_ZAEHLER")
+  IMS_ZAEHLER ("IMS_ZAEHLER")
+  BALGENGASZAEHLER ("BALGENGASZAEHLER")
+  MAXIMUMZAEHLER ("MAXIMUMZAEHLER")
+  MULTIPLEXANLAGE ("MULTIPLEXANLAGE")
+  PAUSCHALANLAGE ("PAUSCHALANLAGE")
+  VERSTAERKERANLAGE ("VERSTAERKERANLAGE")
+  SUMMATIONSGERAET ("SUMMATIONSGERAET")
+  IMPULSGEBER ("IMPULSGEBER")
+  EDL_21_ZAEHLERAUFSATZ ("EDL_21_ZAEHLERAUFSATZ")
+  VIER_QUADRANTEN_LASTGANGZAEHLER ("VIER_QUADRANTEN_LASTGANGZAEHLER")
+  MENGENUMWERTER ("MENGENUMWERTER")
+  STROMWANDLER ("STROMWANDLER")
+  SPANNUNGSWANDLER ("SPANNUNGSWANDLER")
+  DATENLOGGER ("DATENLOGGER")
+  KOMMUNIKATIONSANSCHLUSS ("KOMMUNIKATIONSANSCHLUSS")
+  MODEM ("MODEM")
+  TELEKOMMUNIKATIONSEINRICHTUNG ("TELEKOMMUNIKATIONSEINRICHTUNG")
+  KOMMUNIKATIONSEINRICHTUNG ("KOMMUNIKATIONSEINRICHTUNG")
+  DREHKOLBENGASZAEHLER ("DREHKOLBENGASZAEHLER")
+  TURBINENRADGASZAEHLER ("TURBINENRADGASZAEHLER")
+  ULTRASCHALLZAEHLER ("ULTRASCHALLZAEHLER")
+  WIRBELGASZAEHLER ("WIRBELGASZAEHLER")
+  MODERNE_MESSEINRICHTUNG ("MODERNE_MESSEINRICHTUNG")
+  ELEKTRONISCHER_HAUSHALTSZAEHLER ("ELEKTRONISCHER_HAUSHALTSZAEHLER")
+  STEUEREINRICHTUNG ("STEUEREINRICHTUNG")
+  TECHNISCHESTEUEREINRICHTUNG ("TECHNISCHESTEUEREINRICHTUNG")
+  TARIFSCHALTGERAET ("TARIFSCHALTGERAET")
+  RUNDSTEUEREMPFAENGER ("RUNDSTEUEREMPFAENGER")
+  OPTIONALE_ZUS_ZAEHLEINRICHTUNG ("OPTIONALE_ZUS_ZAEHLEINRICHTUNG")
+  MESSWANDLERSATZ_IMS_MME ("MESSWANDLERSATZ_IMS_MME")
+  KOMBIMESSWANDLER_IMS_MME ("KOMBIMESSWANDLER_IMS_MME")
+  TARIFSCHALTGERAET_IMS_MME ("TARIFSCHALTGERAET_IMS_MME")
+  RUNDSTEUEREMPFAENGER_IMS_MME ("RUNDSTEUEREMPFAENGER_IMS_MME")
+  TEMPERATUR_KOMPENSATION ("TEMPERATUR_KOMPENSATION")
+  HOECHSTBELASTUNGS_ANZEIGER ("HOECHSTBELASTUNGS_ANZEIGER")
+  SONSTIGES_GERAET ("SONSTIGES_GERAET")
+  SMARTMETERGATEWAY ("SMARTMETERGATEWAY")
+  STEUERBOX ("STEUERBOX")
+  BLOCKSTROMWANDLER ("BLOCKSTROMWANDLER")
+  KOMBIMESSWANDLER ("KOMBIMESSWANDLER")
+  MODEM_GSM ("MODEM_GSM")
+  ETHERNET_KOM ("ETHERNET_KOM")
+  PLC_COM ("PLC_COM")
+  MODEM_FESTNETZ ("MODEM_FESTNETZ")
+  DSL_KOM ("DSL_KOM")
+  LTE_KOM ("LTE_KOM")
+  DICHTEMENGENUMWERTER ("DICHTEMENGENUMWERTER")
+  TEMPERATURMENGENUMWERTER ("TEMPERATURMENGENUMWERTER")
+  ZUSTANDSMENGENUMWERTER ("ZUSTANDSMENGENUMWERTER")
+  MESSDATENREGISTRIERGERAET ("MESSDATENREGISTRIERGERAET")
+  WANDLER ("WANDLER")
+}
+
+enum Geschaeftspartnerrolle {
+  KUNDE ("KUNDE")
+  LIEFERANT ("LIEFERANT")
+  DIENSTLEISTER ("DIENSTLEISTER")
+  INTERESSENT ("INTERESSENT")
+  MARKTPARTNER ("MARKTPARTNER")
+  EIGENTUEMER ("EIGENTUEMER")
+  HAUSVERWALTER ("HAUSVERWALTER")
+  KORRESPONDENZEMPFAENGER ("KORRESPONDENZEMPFAENGER")
+  ABLESEKARTENEMPFAENGER ("ABLESEKARTENEMPFAENGER")
+}
+
+enum GrundlageVerringerungUmlagen {
+  ERFUELLT_VORAUSSETZUNG_NACH_ENFG ("ERFUELLT_VORAUSSETZUNG_NACH_ENFG")
+  ERFUELLT_NICHT_VORAUSSETZUNG_NACH_ENFG ("ERFUELLT_NICHT_VORAUSSETZUNG_NACH_ENFG")
+  KEINE_ANGABE ("KEINE_ANGABE")
+}
+
+enum GrundlageVerringerungUmlagenGrund {
+  ENFG_STROMSPEICHER_UND_VERLUSTENERGIE ("ENFG_STROMSPEICHER_UND_VERLUSTENERGIE")
+  ENFG_ELEKTRISCH_ANGETRIEBENE_WAERMEPUMPEN ("ENFG_ELEKTRISCH_ANGETRIEBENE_WAERMEPUMPEN")
+  ENFG_UMLAGEERHEBUNG_BEI_ANLAGEN_ZUR_VERSTROMUNG_VON_KUPPELGASEN ("ENFG_UMLAGEERHEBUNG_BEI_ANLAGEN_ZUR_VERSTROMUNG_VON_KUPPELGASEN")
+  ENFG_HERSTELLUNG_VON_GRUENEN_WASSERSTOFF ("ENFG_HERSTELLUNG_VON_GRUENEN_WASSERSTOFF")
+  ENFG_STROMKOSTENINTENSIVE_UNTERNEHMEN ("ENFG_STROMKOSTENINTENSIVE_UNTERNEHMEN")
+  ENFG_HERSTELLUNG_VON_WASSERSTOFF_IN_STROMKOSTENINTENSIVEN_UNTERNEHMEN ("ENFG_HERSTELLUNG_VON_WASSERSTOFF_IN_STROMKOSTENINTENSIVEN_UNTERNEHMEN")
+  ENFG_SCHIENENBAHNEN ("ENFG_SCHIENENBAHNEN")
+  ENFG_ELEKTRISCHE_BETRIEBENE_BUSSEN_IM_LINIENVERKEHR ("ENFG_ELEKTRISCHE_BETRIEBENE_BUSSEN_IM_LINIENVERKEHR")
+  ENFG_LANDSTROMANLAGEN ("ENFG_LANDSTROMANLAGEN")
+}
+
+enum HaeufigkeitLeistungskurve {
+  EINMALIG ("EINMALIG")
+  JAEHRLICH ("JAEHRLICH")
+}
+
+enum HaeufigkeitSchaltzeit {
+  EINMALIG ("EINMALIG")
+  JAEHRLICH ("JAEHRLICH")
+}
+
+enum HaeufigkeitZaehlzeit {
+  EINMALIG ("EINMALIG")
+  JAEHRLICH ("JAEHRLICH")
+}
+
+enum Handelsunstimmigkeitsgrund {
+  ANMELDUNG_BESTAETIGT ("ANMELDUNG_BESTAETIGT")
+  ABRECHNUNGSBEGINN_GLEICH_BESTAETIGTEM_VERTRAGSBEGINN ("ABRECHNUNGSBEGINN_GLEICH_BESTAETIGTEM_VERTRAGSBEGINN")
+  ABRECHNUNGSENDE_GLEICH_BESTAETIGTEM_VERTRAGSENDE ("ABRECHNUNGSENDE_GLEICH_BESTAETIGTEM_VERTRAGSENDE")
+  NN_MSCONS_UEBERSENDET ("NN_MSCONS_UEBERSENDET")
+  RICHTIGE_MESSWERTE_ENERGIEMENGEN_UEBERSENDET ("RICHTIGE_MESSWERTE_ENERGIEMENGEN_UEBERSENDET")
+  SONSTIGES_SIEHE_BEGRUENDUNG ("SONSTIGES_SIEHE_BEGRUENDUNG")
+  GUELTIGES_PREISBLATT_VERSENDET ("GUELTIGES_PREISBLATT_VERSENDET")
+  GUELTIGER_SPERRAUFTRAG_VORHANDEN ("GUELTIGER_SPERRAUFTRAG_VORHANDEN")
+  KORREKTE_ARTIKEL_ID_IN_RECHNUNG ("KORREKTE_ARTIKEL_ID_IN_RECHNUNG")
+  KORREKTER_PREIS_ZU_GUELTIGEM_PREISBLATT_IN_RECHNUNG ("KORREKTER_PREIS_ZU_GUELTIGEM_PREISBLATT_IN_RECHNUNG")
+  RECHNUNG_KORREKT_A05 ("RECHNUNG_KORREKT_A05")
+  RECHNUNG_KORREKT_A10 ("RECHNUNG_KORREKT_A10")
+  RECHNUNG_KORREKT_A11 ("RECHNUNG_KORREKT_A11")
+  GUELTIGES_PREISBLATT_FRISTGERECHT_VERSENDET ("GUELTIGES_PREISBLATT_FRISTGERECHT_VERSENDET")
+  GUELTIGE_RECHNUNG_VORHANDEN ("GUELTIGE_RECHNUNG_VORHANDEN")
+  ARTIKEL_ID_FUER_VERZUGSKOSTEN_VERWENDET ("ARTIKEL_ID_FUER_VERZUGSKOSTEN_VERWENDET")
+  KORREKTER_PREIS_IN_RECHNUNG_ABGERECHNET ("KORREKTER_PREIS_IN_RECHNUNG_ABGERECHNET")
+  GUELTIGES_PREISBLATT_BLINDARBEIT_VERSENDET ("GUELTIGES_PREISBLATT_BLINDARBEIT_VERSENDET")
+  KORREKTE_ARTIKEL_ID_IST_ANGEGEBEN ("KORREKTE_ARTIKEL_ID_IST_ANGEGEBEN")
+  RECHNUNG_BREGRUENDET_KORREKT ("RECHNUNG_BREGRUENDET_KORREKT")
+  KORREKTE_ARTIKEL_ID_FUER_ABRECHNUNG_STORNIERTER_SPERRAUFTRAG_ANGEGEBEN ("KORREKTE_ARTIKEL_ID_FUER_ABRECHNUNG_STORNIERTER_SPERRAUFTRAG_ANGEGEBEN")
+  ABRECHNUNG_BLINDARBEIT_SPARTE_GAS_NICHT_RELEVANT ("ABRECHNUNG_BLINDARBEIT_SPARTE_GAS_NICHT_RELEVANT")
+  SONSTIGES ("SONSTIGES")
+}
+
+enum Handelsunstimmigkeitsrichtigkeit {
+  MSCONS ("MSCONS")
+  UTILMD ("UTILMD")
+  INVOIC ("INVOIC")
+  ORDERS ("ORDERS")
+  PRICAT ("PRICAT")
+  IFTSTA ("IFTSTA")
+  ORDCHG ("ORDCHG")
+}
+
+enum Handelsunstimmigkeitstyp {
+  HANDELSRECHNUNG ("HANDELSRECHNUNG")
+  LIEFERSCHEIN_HANDELSUNSTIMMIGKEITSTYP ("LIEFERSCHEIN_HANDELSUNSTIMMIGKEITSTYP")
+  LIEFERSCHEIN_GRUND_ARBEITSPREIS ("LIEFERSCHEIN_GRUND_ARBEITSPREIS")
+  LIEFERSCHEIN_ARBEITS_LEISTUNGSPREIS ("LIEFERSCHEIN_ARBEITS_LEISTUNGSPREIS")
+}
+
+enum Herausgeber {
+  NB ("NB")
+  BDEW ("BDEW")
+  TUM ("TUM")
+}
+
+enum Inbetriebsetzung {
+  INBETRIEBSETZUNG_NACH_2023 ("INBETRIEBSETZUNG_NACH_2023")
+  INBETRIEBSETZUN_VOR_2024 ("INBETRIEBSETZUN_VOR_2024")
+}
+
+enum Kalkulationsmethode {
+  KEINE ("KEINE")
+  STAFFELN ("STAFFELN")
+  ZONEN ("ZONEN")
+  VORZONEN_GP ("VORZONEN_GP")
+  SIGMOID ("SIGMOID")
+  BLINDARBEIT_GT_50_PROZENT ("BLINDARBEIT_GT_50_PROZENT")
+  BLINDARBEIT_GT_40_PROZENT ("BLINDARBEIT_GT_40_PROZENT")
+  AP_GP_ZONEN ("AP_GP_ZONEN")
+  LP_INSTALL_LEISTUNG ("LP_INSTALL_LEISTUNG")
+  AP_TRANSPORT_ODER_VERTEILNETZ ("AP_TRANSPORT_ODER_VERTEILNETZ")
+  AP_TRANSPORT_ODER_VERTEILNETZ_ORTSVERTEILNETZ_SIGMOID ("AP_TRANSPORT_ODER_VERTEILNETZ_ORTSVERTEILNETZ_SIGMOID")
+  LP_JAHRESVERBRAUCH ("LP_JAHRESVERBRAUCH")
+  LP_TRANSPORT_ODER_VERTEILNETZ ("LP_TRANSPORT_ODER_VERTEILNETZ")
+  LP_TRANSPORT_ODER_VERTEILNETZ_ORTSVERTEILNETZ_SIGMOID ("LP_TRANSPORT_ODER_VERTEILNETZ_ORTSVERTEILNETZ_SIGMOID")
+  FUNKTIONEN ("FUNKTIONEN")
+  VERBRAUCH_UEBER_SLP_GRENZE_FUNKTIONSBEZOGEN_WEITERE_BERECHNUNG_ALS_LGK ("VERBRAUCH_UEBER_SLP_GRENZE_FUNKTIONSBEZOGEN_WEITERE_BERECHNUNG_ALS_LGK")
+}
+
+enum Kommunikationsrolle {
+  DATENAUSTAUSCH ("DATENAUSTAUSCH")
+  RAHMENVERTRAEGE ("RAHMENVERTRAEGE")
+  KUENDIGUNGSPROZESSE ("KUENDIGUNGSPROZESSE")
+  WECHSELPROZESSE ("WECHSELPROZESSE")
+  STAMMDATENPROZESSE ("STAMMDATENPROZESSE")
+  EINSPEISEPROZESSE ("EINSPEISEPROZESSE")
+  ABRECHNUNGSPROZESSE ("ABRECHNUNGSPROZESSE")
+  MMMA_PROZESSE ("MMMA_PROZESSE")
+  BEWEGUNGSDATEN ("BEWEGUNGSDATEN")
+  ENT_SPERR_PROZESSE ("ENT_SPERR_PROZESSE")
+  BILANZIERUNGSPROZESSE ("BILANZIERUNGSPROZESSE")
+  NETZANSCHLUSS_ANLAGEN ("NETZANSCHLUSS_ANLAGEN")
+}
+
+enum Kontaktart {
+  ANSCHREIBEN ("ANSCHREIBEN")
+  TELEFONAT ("TELEFONAT")
+  FAX ("FAX")
+  E_MAIL ("E_MAIL")
+  SMS ("SMS")
+}
+
+enum Landescode {
+  AC ("AC")
+  AD ("AD")
+  AE ("AE")
+  AF ("AF")
+  AG ("AG")
+  AI ("AI")
+  AL ("AL")
+  AM ("AM")
+  AN ("AN")
+  AO ("AO")
+  AQ ("AQ")
+  AR ("AR")
+  AS ("AS")
+  AT ("AT")
+  AU ("AU")
+  AW ("AW")
+  AX ("AX")
+  AZ ("AZ")
+  BA ("BA")
+  BB ("BB")
+  BD ("BD")
+  BE ("BE")
+  BF ("BF")
+  BG ("BG")
+  BH ("BH")
+  BI ("BI")
+  BJ ("BJ")
+  BL ("BL")
+  BM ("BM")
+  BN ("BN")
+  BO ("BO")
+  BQ ("BQ")
+  BR ("BR")
+  BS ("BS")
+  BT ("BT")
+  BU ("BU")
+  BV ("BV")
+  BW ("BW")
+  BY ("BY")
+  BZ ("BZ")
+  CA ("CA")
+  CC ("CC")
+  CD ("CD")
+  CF ("CF")
+  CG ("CG")
+  CH ("CH")
+  CI ("CI")
+  CK ("CK")
+  CL ("CL")
+  CM ("CM")
+  CN ("CN")
+  CO ("CO")
+  CP ("CP")
+  CR ("CR")
+  CS ("CS")
+  CU ("CU")
+  CV ("CV")
+  CW ("CW")
+  CX ("CX")
+  CY ("CY")
+  CZ ("CZ")
+  DE ("DE")
+  DG ("DG")
+  DJ ("DJ")
+  DK ("DK")
+  DM ("DM")
+  DO ("DO")
+  DZ ("DZ")
+  EA ("EA")
+  EC ("EC")
+  EE ("EE")
+  EG ("EG")
+  EH ("EH")
+  ER ("ER")
+  ES ("ES")
+  ET ("ET")
+  EU ("EU")
+  FI ("FI")
+  FJ ("FJ")
+  FK ("FK")
+  FM ("FM")
+  FO ("FO")
+  FR ("FR")
+  FX ("FX")
+  GA ("GA")
+  GB ("GB")
+  GD ("GD")
+  GE ("GE")
+  GF ("GF")
+  GG ("GG")
+  GH ("GH")
+  GI ("GI")
+  GL ("GL")
+  GM ("GM")
+  GN ("GN")
+  GP ("GP")
+  GQ ("GQ")
+  GR ("GR")
+  GS ("GS")
+  GT ("GT")
+  GU ("GU")
+  GW ("GW")
+  GY ("GY")
+  HK ("HK")
+  HM ("HM")
+  HN ("HN")
+  HR ("HR")
+  HT ("HT")
+  HU ("HU")
+  IC ("IC")
+  ID ("ID")
+  IE ("IE")
+  IL ("IL")
+  IM ("IM")
+  IN ("IN")
+  IO ("IO")
+  IQ ("IQ")
+  IR ("IR")
+  IS ("IS")
+  IT ("IT")
+  JE ("JE")
+  JM ("JM")
+  JO ("JO")
+  JP ("JP")
+  KE ("KE")
+  KG ("KG")
+  KH ("KH")
+  KI ("KI")
+  KM ("KM")
+  KN ("KN")
+  KP ("KP")
+  KR ("KR")
+  KW ("KW")
+  KY ("KY")
+  KZ ("KZ")
+  LA ("LA")
+  LB ("LB")
+  LC ("LC")
+  LI ("LI")
+  LK ("LK")
+  LR ("LR")
+  LS ("LS")
+  LT ("LT")
+  LU ("LU")
+  LV ("LV")
+  LY ("LY")
+  MA ("MA")
+  MC ("MC")
+  MD ("MD")
+  ME ("ME")
+  MF ("MF")
+  MG ("MG")
+  MH ("MH")
+  MK ("MK")
+  ML ("ML")
+  MM ("MM")
+  MN ("MN")
+  MO ("MO")
+  MP ("MP")
+  MQ ("MQ")
+  MR ("MR")
+  MS ("MS")
+  MT ("MT")
+  MU ("MU")
+  MV ("MV")
+  MW ("MW")
+  MX ("MX")
+  MY ("MY")
+  MZ ("MZ")
+  NA ("NA")
+  NC ("NC")
+  NE ("NE")
+  NF ("NF")
+  NG ("NG")
+  NI ("NI")
+  NL ("NL")
+  NO ("NO")
+  NP ("NP")
+  NR ("NR")
+  NT ("NT")
+  NU ("NU")
+  NZ ("NZ")
+  OM ("OM")
+  PA ("PA")
+  PE ("PE")
+  PF ("PF")
+  PG ("PG")
+  PH ("PH")
+  PK ("PK")
+  PL ("PL")
+  PM ("PM")
+  PN ("PN")
+  PR ("PR")
+  PS ("PS")
+  PT ("PT")
+  PW ("PW")
+  PY ("PY")
+  QA ("QA")
+  RE ("RE")
+  RO ("RO")
+  RS ("RS")
+  RU ("RU")
+  RW ("RW")
+  SA ("SA")
+  SB ("SB")
+  SC ("SC")
+  SD ("SD")
+  SE ("SE")
+  SF ("SF")
+  SG ("SG")
+  SH ("SH")
+  SI ("SI")
+  SJ ("SJ")
+  SK ("SK")
+  SL ("SL")
+  SM ("SM")
+  SN ("SN")
+  SO ("SO")
+  SR ("SR")
+  SS ("SS")
+  ST ("ST")
+  SU ("SU")
+  SV ("SV")
+  SX ("SX")
+  SY ("SY")
+  SZ ("SZ")
+  TA ("TA")
+  TC ("TC")
+  TD ("TD")
+  TF ("TF")
+  TG ("TG")
+  TJ ("TJ")
+  TK ("TK")
+  TL ("TL")
+  TM ("TM")
+  TN ("TN")
+  TO ("TO")
+  TP ("TP")
+  TR ("TR")
+  TT ("TT")
+  TV ("TV")
+  TW ("TW")
+  TZ ("TZ")
+  UA ("UA")
+  UG ("UG")
+  UK ("UK")
+  UM ("UM")
+  US ("US")
+  UY ("UY")
+  UZ ("UZ")
+  VA ("VA")
+  VC ("VC")
+  VE ("VE")
+  VG ("VG")
+  VI ("VI")
+  VN ("VN")
+  VU ("VU")
+  WF ("WF")
+  WS ("WS")
+  XK ("XK")
+  YE ("YE")
+  YT ("YT")
+  YU ("YU")
+  ZA ("ZA")
+  ZM ("ZM")
+  ZR ("ZR")
+  ZW ("ZW")
+}
+
+enum Leistungstyp {
+  ARBEITSPREIS_WIRKARBEIT ("ARBEITSPREIS_WIRKARBEIT")
+  LEISTUNGSPREIS_WIRKLEISTUNG ("LEISTUNGSPREIS_WIRKLEISTUNG")
+  ARBEITSPREIS_BLINDARBEIT_IND ("ARBEITSPREIS_BLINDARBEIT_IND")
+  ARBEITSPREIS_BLINDARBEIT_KAP ("ARBEITSPREIS_BLINDARBEIT_KAP")
+  GRUNDPREIS ("GRUNDPREIS")
+  MEHRMINDERMENGE ("MEHRMINDERMENGE")
+  MESSSTELLENBETRIEB ("MESSSTELLENBETRIEB")
+  MESSDIENSTLEISTUNG ("MESSDIENSTLEISTUNG")
+  MESSDIENSTLEISTUNG_INKL_MESSUNG ("MESSDIENSTLEISTUNG_INKL_MESSUNG")
+  ABRECHNUNG ("ABRECHNUNG")
+  KONZESSIONS_ABGABE ("KONZESSIONS_ABGABE")
+  KWK_UMLAGE ("KWK_UMLAGE")
+  OFFSHORE_UMLAGE ("OFFSHORE_UMLAGE")
+  ABLAV_UMLAGE ("ABLAV_UMLAGE")
+  REGELENERGIE_UMLAGE ("REGELENERGIE_UMLAGE")
+  BILANZIERUNG_UMLAGE ("BILANZIERUNG_UMLAGE")
+  AUSLESUNG_ZUSAETZLICH ("AUSLESUNG_ZUSAETZLICH")
+  ABLESUNG_ZUSAETZLICH ("ABLESUNG_ZUSAETZLICH")
+  ABRECHNUNG_ZUSAETZLICH ("ABRECHNUNG_ZUSAETZLICH")
+  SPERRUNG ("SPERRUNG")
+  ENTSPERRUNG ("ENTSPERRUNG")
+  MAHNKOSTEN ("MAHNKOSTEN")
+  INKASSOKOSTEN ("INKASSOKOSTEN")
+}
+
+enum Lokationstyp {
+  MALO ("MALO")
+  MELO ("MELO")
+  NELO ("NELO")
+  TECHNISCHE_RESSOURCE ("TECHNISCHE_RESSOURCE")
+}
+
+enum Lokationszuordnung {
+  UNVERAENDERT ("UNVERAENDERT")
+  BEGINNT ("BEGINNT")
+  ENDET ("ENDET")
+}
+
+enum Marktrolle {
+  NB ("NB")
+  LF ("LF")
+  MSB ("MSB")
+  MSBA ("MSBA")
+  GMSB ("GMSB")
+  MDL ("MDL")
+  DL ("DL")
+  BKV ("BKV")
+  BKO ("BKO")
+  UENB ("UENB")
+  KUNDE_SELBST_NN ("KUNDE-SELBST-NN")
+  MGV ("MGV")
+  EIV ("EIV")
+  RB ("RB")
+  KUNDE ("KUNDE")
+  INTERESSENT ("INTERESSENT")
+  KN ("KN")
+  UBA ("UBA")
+  BIKO ("BIKO")
+  ESA ("ESA")
+}
+
+enum Mengeneinheit {
+  W ("W")
+  WH ("WH")
+  KW ("KW")
+  KWH ("KWH")
+  KVARH ("KVARH")
+  MW ("MW")
+  MWH ("MWH")
+  STUECK ("STUECK")
+  KUBIKMETER ("KUBIKMETER")
+  STUNDE ("STUNDE")
+  TAG ("TAG")
+  MONAT ("MONAT")
+  JAHR ("JAHR")
+  PROZENT ("PROZENT")
+  ANZAHL ("ANZAHL")
+  VAR ("VAR")
+  KVAR ("KVAR")
+  VARH ("VARH")
+  KWHK ("KWHK")
+}
+
+enum Mengenumwertertyp {
+  DICHTEMENGENUMWERTER ("DICHTEMENGENUMWERTER")
+  TEMPERATURMENGENUMWERTER ("TEMPERATURMENGENUMWERTER")
+  ZUSTANDSMENGENUMWERTER ("ZUSTANDSMENGENUMWERTER")
+}
+
+enum MesstechnischeEinordnung {
+  IMS ("IMS")
+  KME_MME ("KME_MME")
+  KEINE_MESSUNG ("KEINE_MESSUNG")
+}
+
+enum Messwerterfassung {
+  FERNAUSLESBAR ("FERNAUSLESBAR")
+  MANUELL_AUSGELESENE ("MANUELL_AUSGELESENE")
+}
+
+enum Messwertstatus {
+  ABGELESEN ("ABGELESEN")
+  ERSATZWERT ("ERSATZWERT")
+  VORSCHLAGSWERT ("VORSCHLAGSWERT")
+  NICHT_VERWENDBAR ("NICHT_VERWENDBAR")
+  PROGNOSEWERT ("PROGNOSEWERT")
+  ENERGIEMENGESUMMIERT ("ENERGIEMENGESUMMIERT")
+  VOLAEUFIGERWERT ("VOLAEUFIGERWERT")
+  FEHLT ("FEHLT")
+  ANGABE_FUER_LIEFERSCHEIN ("ANGABE_FUER_LIEFERSCHEIN")
+}
+
+enum ModulNetzentgelte {
+  PAUSCHALE_NETZGELDREDUZIERUNG_MODUL_1 ("PAUSCHALE_NETZGELDREDUZIERUNG_MODUL_1")
+  PROZENTUALE_REDUZIERUNG_ARBEITSPREIS_MODUL_2 ("PROZENTUALE_REDUZIERUNG_ARBEITSPREIS_MODUL_2")
+  ANREIZMODUL_ZEITVARIABLES_NETZENTGELT_MODUL_3 ("ANREIZMODUL_ZEITVARIABLES_NETZENTGELT_MODUL_3")
+}
+
+enum MSBEigenschaft {
+  GRUNDZUSTAENDIGER_MESSSTELLENBETREIBER ("GRUNDZUSTAENDIGER_MESSSTELLENBETREIBER")
+  WETTBEWERBLICHER_MESSSTELLENBETREIBER ("WETTBEWERBLICHER_MESSSTELLENBETREIBER")
+  AUFFANGMESSSTELLENBETREIBER ("AUFFANGMESSSTELLENBETREIBER")
+}
+
+enum Netzebene {
+  NSP ("NSP")
+  MSP ("MSP")
+  HSP ("HSP")
+  HSS ("HSS")
+  MSP_NSP_UMSP ("MSP_NSP_UMSP")
+  HSP_MSP_UMSP ("HSP_MSP_UMSP")
+  HSS_HSP_UMSP ("HSS_HSP_UMSP")
+  HD ("HD")
+  MD ("MD")
+  ND ("ND")
+}
+
+enum Netznutzungsabrechnungsgrundlage {
+  LIEFERSCHEIN ("LIEFERSCHEIN")
+  ABWEICHENDE_GRUNDLAGE ("ABWEICHENDE_GRUNDLAGE")
+}
+
+enum Netznutzungsabrechnungsvariante {
+  ARBEITSPREIS_GRUNDPREIS ("ARBEITSPREIS_GRUNDPREIS")
+  ARBEITSPREIS_LEISTUNGSPREIS ("ARBEITSPREIS_LEISTUNGSPREIS")
+}
+
+enum Netznutzungsvertrag {
+  KUNDEN_NB ("KUNDEN_NB")
+  LIEFERANTEN_NB ("LIEFERANTEN_NB")
+}
+
+enum Netznutzungszahler {
+  KUNDE ("KUNDE")
+  LIEFERANT ("LIEFERANT")
+}
+
+enum NotwendigkeitZweiteMessung {
+  VORHANDEN ("VORHANDEN")
+  NICHT_VORHANDEN ("NICHT_VORHANDEN")
+}
+
+enum Preisstatus {
+  VORLAEUFIG ("VORLAEUFIG")
+  ENDGUELTIG ("ENDGUELTIG")
+}
+
+enum Profilart {
+  ART_STANDARDLASTPROFIL ("ART_STANDARDLASTPROFIL")
+  ART_TAGESPARAMETERABHAENGIGES_LASTPROFIL ("ART_TAGESPARAMETERABHAENGIGES_LASTPROFIL")
+  ART_LASTPROFIL ("ART_LASTPROFIL")
+}
+
+enum Profiltyp {
+  SLP_SEP ("SLP_SEP")
+  TLP_TEP ("TLP_TEP")
+  TEP ("TEP")
+}
+
+enum Profilverfahren {
+  SYNTHETISCH ("SYNTHETISCH")
+  ANALYTISCH ("ANALYTISCH")
+}
+
+enum Prognosegrundlage {
+  WERTE ("WERTE")
+  PROFILE ("PROFILE")
+}
+
+enum Rechnungsstatus {
+  DUPLIKAT ("DUPLIKAT")
+  ORIGINAL ("ORIGINAL")
+}
+
+enum Rechnungstyp {
+  ABSCHLUSSRECHNUNG ("ABSCHLUSSRECHNUNG")
+  ABSCHLAGSRECHNUNG ("ABSCHLAGSRECHNUNG")
+  TURNUSRECHNUNG ("TURNUSRECHNUNG")
+  MONATSRECHNUNG ("MONATSRECHNUNG")
+  WIMRECHNUNG ("WIMRECHNUNG")
+  ZWISCHENRECHNUNG ("ZWISCHENRECHNUNG")
+  INTEGRIERTE_13TE_RECHNUNG ("INTEGRIERTE_13TE_RECHNUNG")
+  ZUSAETZLICHE_13TE_RECHNUNG ("ZUSAETZLICHE_13TE_RECHNUNG")
+  MEHRMINDERMENGENRECHNUNG ("MEHRMINDERMENGENRECHNUNG")
+  MSBRECHNUNG ("MSBRECHNUNG")
+  KAPAZITAETSRECHNUNG ("KAPAZITAETSRECHNUNG")
+  SPERRUNG_INBETRIEBNAHME ("SPERRUNG_INBETRIEBNAHME")
+  VERZUGSKOSTEN ("VERZUGSKOSTEN")
+  BLINDARBEIT ("BLINDARBEIT")
+  SONDERRECHNUNG ("SONDERRECHNUNG")
+  ABRECHNUNG_VON_KONFIGURATIONEN_UNIVERSALBESTELLPROZESS ("ABRECHNUNG_VON_KONFIGURATIONEN_UNIVERSALBESTELLPROZESS")
+}
+
+enum Reklamationsgrund {
+  WERTE_ZU_HOCH ("WERTE_ZU_HOCH")
+  WERTE_ZU_NIEDRIG ("WERTE_ZU_NIEDRIG")
+  WERTE_FEHLEN ("WERTE_FEHLEN")
+  KONFIGURATION_WIRKT_NICHT ("KONFIGURATION_WIRKT_NICHT")
+  KONFIGURATION_WIRKT_TEILWEISE ("KONFIGURATION_WIRKT_TEILWEISE")
+  WERTE_WERDEN_NICHT_NACH_VORGABEN_UEBERMITTELT ("WERTE_WERDEN_NICHT_NACH_VORGABEN_UEBERMITTELT")
+  UEBERSICHT_FEHLT ("UEBERSICHT_FEHLT")
+  UEBERSICHT_UNPLAUSIBEL ("UEBERSICHT_UNPLAUSIBEL")
+  AUSGEROLLTE_DEFINITION_FEHLT ("AUSGEROLLTE_DEFINITION_FEHLT")
+  AUSGEROLLTE_DEFINITION_UNPLAUSIBEL ("AUSGEROLLTE_DEFINITION_UNPLAUSIBEL")
+}
+
+enum RessourceWechselmoeglichkeit {
+  WECHSELMOEGLICHKEIT_EINMALIG_NOCH_MOEGLICH ("WECHSELMOEGLICHKEIT_EINMALIG_NOCH_MOEGLICH")
+  WECHSELMOEGLICHKEIT_NICHT_MOEGLICH ("WECHSELMOEGLICHKEIT_NICHT_MOEGLICH")
+  BEFRISTET_OHNE_WECHSELMOEGLICHKEIT ("BEFRISTET_OHNE_WECHSELMOEGLICHKEIT")
+  WECHSEL_WURDE_DURCHGEFUEHRT ("WECHSEL_WURDE_DURCHGEFUEHRT")
+}
+
+enum Rufnummernart {
+  RUF_ZENTRALE ("RUF_ZENTRALE")
+  FAX_ZENTRALE ("FAX_ZENTRALE")
+  SAMMELRUF ("SAMMELRUF")
+  SAMMELFAX ("SAMMELFAX")
+  ABTEILUNGRUF ("ABTEILUNGRUF")
+  ABTEILUNGFAX ("ABTEILUNGFAX")
+  RUF_DURCHWAHL ("RUF_DURCHWAHL")
+  FAX_DURCHWAHL ("FAX_DURCHWAHL")
+  MOBIL_NUMMER ("MOBIL_NUMMER")
+}
+
+enum Schalthandlung {
+  LEISTUNG_AN ("LEISTUNG_AN")
+  LEISTUNG_AUS ("LEISTUNG_AUS")
+}
+
+enum Schwachlastfaehig {
+  SCHWACHLASTFAEHIG ("SCHWACHLASTFAEHIG")
+  NICHT_SCHWACHLASTFAEHIG ("NICHT_SCHWACHLASTFAEHIG")
+}
+
+enum SonderrechnungsArt {
+  KONZESSIONSABGABE_TESTAT ("KONZESSIONSABGABE_TESTAT")
+  INDIVIDUELL_ATYPISCH ("INDIVIDUELL_ATYPISCH")
+  INDIVIDUELL_SINGULAER ("INDIVIDUELL_SINGULAER")
+  KWKG_UMLAGE ("KWKG_UMLAGE")
+  OFFSHORE_UMLAGE ("OFFSHORE_UMLAGE")
+  P19_STROM_NEV_UMLAGE ("P19_STROM_NEV_UMLAGE")
+  P18_ABLAV ("P18_ABLAV")
+  KONZESSIONSABGABE_WECHSEL_RLM ("KONZESSIONSABGABE_WECHSEL_RLM")
+  PRIVILEGIERUNG_NACH_ENFG ("PRIVILEGIERUNG_NACH_ENFG")
+}
+
+enum Sparte {
+  STROM ("STROM")
+  GAS ("GAS")
+  FERNWAERME ("FERNWAERME")
+  NAHWAERME ("NAHWAERME")
+  WASSER ("WASSER")
+  ABWASSER ("ABWASSER")
+}
+
+enum Speicherart {
+  WASSERSTOFFSPEICHER ("WASSERSTOFFSPEICHER")
+  PUMPSPEICHER ("PUMPSPEICHER")
+  BATTERIESPEICHER ("BATTERIESPEICHER")
+  SONSTIGE_SPEICHERART ("SONSTIGE_SPEICHERART")
+}
+
+enum Sperrauftragsablehngrund {
+  DUPLIKAT ("DUPLIKAT")
+  FALSCHER_MSB ("FALSCHER_MSB")
+  FALSCHE_SPANNUNGSEBENE ("FALSCHE_SPANNUNGSEBENE")
+  WEITERE_MALO_BETROFFEN ("WEITERE_MALO_BETROFFEN")
+  ANDERER_ABLEHNGRUND ("ANDERER_ABLEHNGRUND")
+  FRISTVERLETZUNG_TERMINGEBUNDEN ("FRISTVERLETZUNG_TERMINGEBUNDEN")
+  FRISTVERLETZUNG_NICHT_TERMINGEBUNDEN ("FRISTVERLETZUNG_NICHT_TERMINGEBUNDEN")
+  ANDERER_FEHLER ("ANDERER_FEHLER")
+  LIEGT_BEREITS_VOR ("LIEGT_BEREITS_VOR")
+  ANDERER_ZUKUENFTIGER_LIEFERANT ("ANDERER_ZUKUENFTIGER_LIEFERANT")
+  BESTAETIGTER_LIEFERBEGINN ("BESTAETIGTER_LIEFERBEGINN")
+}
+
+enum Sperrauftragsart {
+  SPERREN ("SPERREN")
+  ENTSPERREN ("ENTSPERREN")
+}
+
+enum Sperrauftragsverhinderungsgrund {
+  RECHTLICHER_GRUND_FEHLT ("RECHTLICHER_GRUND_FEHLT")
+  AKTIVE_ZUTRITTSVERWEIGERUNG ("AKTIVE_ZUTRITTSVERWEIGERUNG")
+  PASSIVE_ZUTRITTSVERWEIGERUNG ("PASSIVE_ZUTRITTSVERWEIGERUNG")
+  ANDERER_VERHINDERUNGSGRUND ("ANDERER_VERHINDERUNGSGRUND")
+  TATSAECHLICHER_VERHINDERUNGSGRUND ("TATSAECHLICHER_VERHINDERUNGSGRUND")
+  TECHNISCHER_VERHINDERUNGSGRUND ("TECHNISCHER_VERHINDERUNGSGRUND")
+  ANSCHLUSSNUTZER_WURDE_NICHT_ANGETROFFEN ("ANSCHLUSSNUTZER_WURDE_NICHT_ANGETROFFEN")
+}
+
+enum Sperrstatus {
+  ENTSPERRT ("ENTSPERRT")
+  GESPERRT ("GESPERRT")
+}
+
+enum Status {
+  KUNDENSELBSTABLESUNG ("KUNDENSELBSTABLESUNG")
+  LEERSTAND ("LEERSTAND")
+  REALER_ZAEHLERUEBERLAUF_GEPRUEFT ("REALER_ZAEHLERUEBERLAUF_GEPRUEFT")
+  PLAUSIBEL_WG_KONTROLLABLESUNG ("PLAUSIBEL_WG_KONTROLLABLESUNG")
+  PLAUSIBEL_WG_KUNDENHINWEIS ("PLAUSIBEL_WG_KUNDENHINWEIS")
+  AUSTAUSCH_DES_ERSATZWERTES ("AUSTAUSCH_DES_ERSATZWERTES")
+  RECHENWERT ("RECHENWERT")
+  BASIS_MME ("BASIS_MME")
+  VERGLEICHSMESSUNG_GEEICHT ("VERGLEICHSMESSUNG_GEEICHT")
+  VERGLEICHSMESSUNG_NICHT_GEEICHT ("VERGLEICHSMESSUNG_NICHT_GEEICHT")
+  MESSWERTNACHBILDUNG_AUS_GEEICHTEN_WERTEN ("MESSWERTNACHBILDUNG_AUS_GEEICHTEN_WERTEN")
+  MESSWERTNACHBILDUNG_AUS_NICHT_GEEICHTEN_WERTEN ("MESSWERTNACHBILDUNG_AUS_NICHT_GEEICHTEN_WERTEN")
+  INTERPOLATION ("INTERPOLATION")
+  HALTEWERT ("HALTEWERT")
+  BILANZIERUNG_NETZABSCHNITT ("BILANZIERUNG_NETZABSCHNITT")
+  HISTORISCHE_MESSWERTE ("HISTORISCHE_MESSWERTE")
+  STATISTISCHE_METHODE ("STATISTISCHE_METHODE")
+  AUFTEILUNG ("AUFTEILUNG")
+  VERWENDUNG_VON_WERTEN_DES_STOERMENGENZAEHLWERKS ("VERWENDUNG_VON_WERTEN_DES_STOERMENGENZAEHLWERKS")
+  UMGANGS_UND_KORREKTURMENGEN ("UMGANGS_UND_KORREKTURMENGEN")
+  ANGABEN_MESSLOKATION ("ANGABEN_MESSLOKATION")
+  KEIN_ZUGANG ("KEIN_ZUGANG")
+  KOMMUNIKATIONSSTOERUNG ("KOMMUNIKATIONSSTOERUNG")
+  NETZAUSFALL ("NETZAUSFALL")
+  SPANNUNGSAUSFALL ("SPANNUNGSAUSFALL")
+  STATUS_GERAETEWECHSEL ("STATUS_GERAETEWECHSEL")
+  KALIBRIERUNG ("KALIBRIERUNG")
+  GERAET_ARBEITET_AUSSERHALB_DER_BETRIEBSBEDINGUNGEN ("GERAET_ARBEITET_AUSSERHALB_DER_BETRIEBSBEDINGUNGEN")
+  MESSEINRICHTUNG_GESTOERT_DEFEKT ("MESSEINRICHTUNG_GESTOERT_DEFEKT")
+  UNSICHERHEIT_MESSUNG ("UNSICHERHEIT_MESSUNG")
+  BERUECKSICHTIGUNG_STOERMENGENZAEHLWERK ("BERUECKSICHTIGUNG_STOERMENGENZAEHLWERK")
+  MENGENUMWERTUNG_VOLLSTAENDIG ("MENGENUMWERTUNG_VOLLSTAENDIG")
+  UHRZEIT_GESTELLT_SYNCHRONISATION ("UHRZEIT_GESTELLT_SYNCHRONISATION")
+  MESSWERT_UNPLAUSIBEL ("MESSWERT_UNPLAUSIBEL")
+  FALSCHER_WANDLERFAKTOR ("FALSCHER_WANDLERFAKTOR")
+  FEHLERHAFTE_ABLESUNG ("FEHLERHAFTE_ABLESUNG")
+  AENDERUNG_DER_BERECHNUNG ("AENDERUNG_DER_BERECHNUNG")
+  UMBAU_DER_MESSLOKATION ("UMBAU_DER_MESSLOKATION")
+  DATENBEARBEITUNGSFEHLER ("DATENBEARBEITUNGSFEHLER")
+  BRENNWERTKORREKTUR ("BRENNWERTKORREKTUR")
+  Z_ZAHL_KORREKTUR ("Z_ZAHL_KORREKTUR")
+  STOERUNG_DEFEKT_MESSEINRICHTUNG ("STOERUNG_DEFEKT_MESSEINRICHTUNG")
+  AENDERUNG_TARIFSCHALTZEITEN ("AENDERUNG_TARIFSCHALTZEITEN")
+  TARIFSCHALTGERAET_DEFEKT ("TARIFSCHALTGERAET_DEFEKT")
+  IMPULSWERTIGKEIT_NICHT_AUSREICHEND ("IMPULSWERTIGKEIT_NICHT_AUSREICHEND")
+  ENERGIEMENGE_IN_UNGEMESSENEM_ZEITINTERVALL ("ENERGIEMENGE_IN_UNGEMESSENEM_ZEITINTERVALL")
+  ENERGIEMENGE_AUS_DEM_UNGEPAIRTEN_ZEITINTERVALL ("ENERGIEMENGE_AUS_DEM_UNGEPAIRTEN_ZEITINTERVALL")
+  WARTUNGSARBEITEN_AN_GEEICHTEM_MESSGERAET ("WARTUNGSARBEITEN_AN_GEEICHTEM_MESSGERAET")
+  GESTOERTE_WERTE ("GESTOERTE_WERTE")
+  WARTUNGSARBEITEN_AN_EICHRECHTSKONFORMEN_MESSGERAETEN ("WARTUNGSARBEITEN_AN_EICHRECHTSKONFORMEN_MESSGERAETEN")
+  KONSISTENZ_UND_SYNCHRONPRUEFUNG ("KONSISTENZ_UND_SYNCHRONPRUEFUNG")
+  GRUND_ANGABEN_MESSLOKATION ("GRUND_ANGABEN_MESSLOKATION")
+  ANFORDERUNG_IN_DIE_VERGANGENHEIT_ZUM_ANGEFORDERTEN_ZEITPUNKT_LIEGT_KEIN_WERT_VOR ("ANFORDERUNG_IN_DIE_VERGANGENHEIT_ZUM_ANGEFORDERTEN_ZEITPUNKT_LIEGT_KEIN_WERT_VOR")
+  UMSTELLUNG_GASQUALITAET ("UMSTELLUNG_GASQUALITAET")
+  ZAEHLERSTAND_ZUM_BEGINN_DER_ANGEGEBENEN_ENERGIEMENGE_VORHANDEN_UND_KOMMUNIZIERT ("ZAEHLERSTAND_ZUM_BEGINN_DER_ANGEGEBENEN_ENERGIEMENGE_VORHANDEN_UND_KOMMUNIZIERT")
+  ZAEHLERSTAND_ZUM_ENDE_DER_ANGEGEBENEN_ENERGIEMENGE_VORHANDEN_UND_KOMMUNIZIERT ("ZAEHLERSTAND_ZUM_ENDE_DER_ANGEGEBENEN_ENERGIEMENGE_VORHANDEN_UND_KOMMUNIZIERT")
+  ZAEHLERSTAND_ZUM_BEGINN_DER_ANGEGEBENEN_ENERGIEMENGE_NICHT_VORHANDEN_DA_MENGENABGRENZUNG ("ZAEHLERSTAND_ZUM_BEGINN_DER_ANGEGEBENEN_ENERGIEMENGE_NICHT_VORHANDEN_DA_MENGENABGRENZUNG")
+  ZAEHLERSTAND_ZUM_ENDE_DER_ANGEGEBENEN_ENERGIEMENGE_NICHT_VORHANDEN_DA_MENGENABGRENZUNG ("ZAEHLERSTAND_ZUM_ENDE_DER_ANGEGEBENEN_ENERGIEMENGE_NICHT_VORHANDEN_DA_MENGENABGRENZUNG")
+  GESCHEITERT ("GESCHEITERT")
+  AUSGEBAUT ("AUSGEBAUT")
+}
+
+enum Statusanlass {
+  KOMMUNIKATIONSSTOERUNG ("KOMMUNIKATIONSSTOERUNG")
+  STATUS_GERAETEWECHSEL ("STATUS_GERAETEWECHSEL")
+  MESSEINRICHTUNG_GESTOERT_DEFEKT ("MESSEINRICHTUNG_GESTOERT_DEFEKT")
+  KEINE_STOERUNG_FESTSTELLBAR ("KEINE_STOERUNG_FESTSTELLBAR")
+  STOERUNGSBEHEBUNG_NICHT_MOEGLICH ("STOERUNGSBEHEBUNG_NICHT_MOEGLICH")
+  REPARATUR_OHNE_GERAETEWECHSEL ("REPARATUR_OHNE_GERAETEWECHSEL")
+}
+
+enum StatusArt {
+  PLAUSIBILISIERUNGSHINWEIS ("PLAUSIBILISIERUNGSHINWEIS")
+  ERSATZWERTBILDUNGSVERFAHREN ("ERSATZWERTBILDUNGSVERFAHREN")
+  KORREKTURGRUND ("KORREKTURGRUND")
+  GRUND_ERSATZWERTBILDUNGSVERFAHREN ("GRUND_ERSATZWERTBILDUNGSVERFAHREN")
+  GASQUALITAET ("GASQUALITAET")
+  MESSKLASSIFIZIERUNG ("MESSKLASSIFIZIERUNG")
+}
+
+enum StatusErzeugendeMarktlokation {
+  EINSPEISEVERGUETUNG_PARAGRAPH_37 ("EINSPEISEVERGUETUNG_PARAGRAPH_37")
+  GEFOERDERTE_DIREKTVERMARKTUNG ("GEFOERDERTE_DIREKTVERMARKTUNG")
+  SONSTIGE_DIREKTVERMARKTUNG ("SONSTIGE_DIREKTVERMARKTUNG")
+  VERMARKTUNG_OHNE_GESETZL_VERGUETUNG ("VERMARKTUNG_OHNE_GESETZL_VERGUETUNG")
+  KWKG_VERGUETUNG ("KWKG_VERGUETUNG")
+  EINSPEISEVERGUETUNG_PARAGRAPH_38_AUSFALLVERGUETUNG ("EINSPEISEVERGUETUNG_PARAGRAPH_38_AUSFALLVERGUETUNG")
+}
+
+enum Statusobjekt {
+  MSBWECHSEL ("MSBWECHSEL")
+  UMBAUMELO ("UMBAUMELO")
+  ERSTEINBAUIMS ("ERSTEINBAUIMS")
+  ERSTEINBAUMME ("ERSTEINBAUMME")
+  GERAET ("GERAET")
+  ANGEBOTANFRAGE ("ANGEBOTANFRAGE")
+  STATUSBESTELLUNG ("STATUSBESTELLUNG")
+  LIEFERSCHEIN ("LIEFERSCHEIN")
+  SPERREN ("SPERREN")
+  ENTSPERREN ("ENTSPERREN")
+  PRIVILEGIERUNG_NACH_ENFG ("PRIVILEGIERUNG_NACH_ENFG")
+}
+
+enum Steuerkanal {
+  AN_AUS ("AN_AUS")
+  GESTUFT ("GESTUFT")
+}
+
+enum Steuerkennzeichen {
+  UST_19 ("UST_19")
+  UST_16 ("UST_16")
+  UST_7 ("UST_7")
+  VST_0 ("VST_0")
+  VST_19 ("VST_19")
+  VST_16 ("VST_16")
+  VST_7 ("VST_7")
+  RCV ("RCV")
+}
+
+enum Tarifart {
+  EINTARIF ("EINTARIF")
+  ZWEITARIF ("ZWEITARIF")
+  MEHRTARIF ("MEHRTARIF")
+  SMART_METER ("SMART_METER")
+  LEISTUNGSGEMESSEN ("LEISTUNGSGEMESSEN")
+}
+
+enum Tarifstufe {
+  TARIFSTUFE_0 ("TARIFSTUFE_0")
+  TARIFSTUFE_1 ("TARIFSTUFE_1")
+  TARIFSTUFE_2 ("TARIFSTUFE_2")
+  TARIFSTUFE_3 ("TARIFSTUFE_3")
+  TARIFSTUFE_4 ("TARIFSTUFE_4")
+  TARIFSTUFE_5 ("TARIFSTUFE_5")
+  TARIFSTUFE_6 ("TARIFSTUFE_6")
+  TARIFSTUFE_7 ("TARIFSTUFE_7")
+  TARIFSTUFE_8 ("TARIFSTUFE_8")
+  TARIFSTUFE_9 ("TARIFSTUFE_9")
+}
+
+enum Tarifzeit {
+  TZ_STANDARD ("TZ_STANDARD")
+  TZ_HT ("TZ_HT")
+  TZ_NT ("TZ_NT")
+}
+
+enum TechnischeRessourceArt {
+  STROMERZEUGUNG ("STROMERZEUGUNG")
+  STROMVERBRAUCH ("STROMVERBRAUCH")
+  SPEICHER ("SPEICHER")
+}
+
+enum UebermittelbarkeitLeistungskurve {
+  ELEKTRONISCH ("ELEKTRONISCH")
+  NICHT_ELEKTRONISCH ("NICHT_ELEKTRONISCH")
+}
+
+enum UebermittelbarkeitSchaltzeit {
+  ELEKTRONISCH ("ELEKTRONISCH")
+  NICHT_ELEKTRONISCH ("NICHT_ELEKTRONISCH")
+}
+
+enum UebermittelbarkeitZaehlzeit {
+  ELEKTRONISCH ("ELEKTRONISCH")
+  NICHT_ELEKTRONISCH ("NICHT_ELEKTRONISCH")
+}
+
+enum Unterbrechbarkeit {
+  UV ("UV")
+  NUV ("NUV")
+}
+
+enum Verbrauchsart {
+  KL ("KL")
+  W ("W")
+  EMOB ("EMOB")
+  SB ("SB")
+  SW ("SW")
+}
+
+enum Verbrauchsmengetyp {
+  ARBEITLEISTUNGTAGESPARAMETERABHMALO ("ARBEITLEISTUNGTAGESPARAMETERABHMALO")
+  VERANSCHLAGTEJAHRESMENGE ("VERANSCHLAGTEJAHRESMENGE")
+  TUMKUNDENWERT ("TUMKUNDENWERT")
+}
+
+enum Verfuegbarkeit {
+  MONTAG ("MONTAG")
+  DIENSTAG ("DIENSTAG")
+  MITTWOCH ("MITTWOCH")
+  DONNERSTAG ("DONNERSTAG")
+  FREITAG ("FREITAG")
+  PAUSE ("PAUSE")
+}
+
+enum VerguetungEmpfaenger {
+  KUNDE ("KUNDE")
+  LIEFERANT ("LIEFERANT")
+}
+
+enum Versorgungsart {
+  ERSATZVERSORGUNG ("ERSATZVERSORGUNG")
+  GRUNDVERSORGUNG ("GRUNDVERSORGUNG")
+  ERSATZBELIEFERUNG ("ERSATZBELIEFERUNG")
+}
+
+enum Vertragsart {
+  ENERGIELIEFERVERTRAG ("ENERGIELIEFERVERTRAG")
+  NETZNUTZUNGSVERTRAG ("NETZNUTZUNGSVERTRAG")
+  BILANZIERUNGSVERTRAG ("BILANZIERUNGSVERTRAG")
+  MESSSTELLENBETRIEBSVERTRAG ("MESSSTELLENBETRIEBSVERTRAG")
+  BUENDELVERTRAG ("BUENDELVERTRAG")
+}
+
+enum Vertragstatus {
+  IN_ARBEIT ("IN_ARBEIT")
+  UEBERMITTELT ("UEBERMITTELT")
+  ANGENOMMEN ("ANGENOMMEN")
+  AKTIV ("AKTIV")
+  ABGELEHNT ("ABGELEHNT")
+  WIDERRUFEN ("WIDERRUFEN")
+  STORNIERT ("STORNIERT")
+  GEKUENDIGT ("GEKUENDIGT")
+  BEENDET ("BEENDET")
+}
+
+enum Verwendungsumfang {
+  MESSLOKATION_PROZESSUAL_BEHANDELT ("MESSLOKATION_PROZESSUAL_BEHANDELT")
+  MESSLOKATION_LOKATIONSBUENDEL ("MESSLOKATION_LOKATIONSBUENDEL")
+}
+
+enum Verwendungszeitraumqualitaet {
+  IM_SYSTEM_VORHANDENE_DATEN ("IM_SYSTEM_VORHANDENE_DATEN")
+  ERWARTETE_DATEN ("ERWARTETE_DATEN")
+  GUELTIGE_DATEN ("GUELTIGE_DATEN")
+  KEINE_DATEN ("KEINE_DATEN")
+  IM_SYSTEM_KEINE_DATEN_VORHANDEN ("IM_SYSTEM_KEINE_DATEN_VORHANDEN")
+  KEINE_DATEN_ERWARTET ("KEINE_DATEN_ERWARTET")
+}
+
+enum VerwendungszweckValue {
+  NETZNUTZUNGSABRECHNUNG ("NETZNUTZUNGSABRECHNUNG")
+  BILANZKREISABRECHNUNG ("BILANZKREISABRECHNUNG")
+  MEHRMINDERMENGENABRECHNUNG ("MEHRMINDERMENGENABRECHNUNG")
+  ENDKUNDENABRECHNUNG ("ENDKUNDENABRECHNUNG")
+  UEBERMITTLUNG_AN_DAS_HKNR ("UEBERMITTLUNG_AN_DAS_HKNR")
+  BLINDARBEITSABRECHNUNG ("BLINDARBEITSABRECHNUNG")
+  ERMITTLUNG_AUSGEGLICHENHEIT_BILANZKREIS ("ERMITTLUNG_AUSGEGLICHENHEIT_BILANZKREIS")
+  BLINDARBEITABRECHNUNG_BETRIEBSFUEHRUNG ("BLINDARBEITABRECHNUNG_BETRIEBSFUEHRUNG")
+  ES_LIEGT_KEIN_VERWENDUNGSZWECK_VOR ("ES_LIEGT_KEIN_VERWENDUNGSZWECK_VOR")
+}
+
+enum Volumenerfassung {
+  HOCHFREQUENZSONDE ("HOCHFREQUENZSONDE")
+  KENNLINIENKORREKTUR ("KENNLINIENKORREKTUR")
+  SCHLEICHMENGENUNTERDRUECKUNG ("SCHLEICHMENGENUNTERDRUECKUNG")
+}
+
+enum Waehrungseinheit {
+  EUR ("EUR")
+  CT ("CT")
+}
+
+enum Waermenutzung {
+  SPEICHERHEIZUNG ("SPEICHERHEIZUNG")
+  WAERMEPUMPE ("WAERMEPUMPE")
+  DIREKTHEIZUNG ("DIREKTHEIZUNG")
+}
+
+enum WahlrechtPrognosegrundlage {
+  DURCH_LF ("DURCH_LF")
+  DURCH_LF_NICHT_GEGEBEN ("DURCH_LF_NICHT_GEGEBEN")
+  NICHT_WEGEN_GROSSEN_VERBRAUCHS ("NICHT_WEGEN_GROSSEN_VERBRAUCHS")
+  NICHT_WEGEN_EIGENVERBRAUCH ("NICHT_WEGEN_EIGENVERBRAUCH")
+  NICHT_WEGEN_TAGES_VERBRAUCH ("NICHT_WEGEN_TAGES_VERBRAUCH")
+  NICHT_WEGEN_ENWG ("NICHT_WEGEN_ENWG")
+}
+
+enum Wertegranularitaet {
+  JAEHRLICH ("JAEHRLICH")
+  HALBJAEHRLICH ("HALBJAEHRLICH")
+  QUARTALSWEISE ("QUARTALSWEISE")
+  MONATLICH ("MONATLICH")
+}
+
+enum Wertermittlungsverfahren {
+  PROGNOSE ("PROGNOSE")
+  MESSUNG ("MESSUNG")
+}
+
+enum WerteuebermittlungVerwendungszweck {
+  VORHANDEN ("VORHANDEN")
+  NICHT_VORHANDEN ("NICHT_VORHANDEN")
+}
+
+enum Zaehlerauspraegung {
+  EINRICHTUNGSZAEHLER ("EINRICHTUNGSZAEHLER")
+  ZWEIRICHTUNGSZAEHLER ("ZWEIRICHTUNGSZAEHLER")
+}
+
+enum Zaehlertyp {
+  DREHSTROMZAEHLER ("DREHSTROMZAEHLER")
+  BALGENGASZAEHLER ("BALGENGASZAEHLER")
+  DREHKOLBENZAEHLER ("DREHKOLBENZAEHLER")
+  SMARTMETER ("SMARTMETER")
+  LEISTUNGSZAEHLER ("LEISTUNGSZAEHLER")
+  MAXIMUMZAEHLER ("MAXIMUMZAEHLER")
+  TURBINENRADGASZAEHLER ("TURBINENRADGASZAEHLER")
+  ULTRASCHALLGASZAEHLER ("ULTRASCHALLGASZAEHLER")
+  WECHSELSTROMZAEHLER ("WECHSELSTROMZAEHLER")
+  WIRBELGASZAEHLER ("WIRBELGASZAEHLER")
+  MESSDATENREGISTRIERGERAET ("MESSDATENREGISTRIERGERAET")
+  ELEKTRONISCHERHAUSHALTSZAEHLER ("ELEKTRONISCHERHAUSHALTSZAEHLER")
+  SONDERAUSSTATTUNG ("SONDERAUSSTATTUNG")
+  WASSERZAEHLER ("WASSERZAEHLER")
+  MODERNEMESSEINRICHTUNG ("MODERNEMESSEINRICHTUNG")
+}
+
+enum ZaehlertypSpezifikation {
+  EDL40 ("EDL40")
+  EDL21 ("EDL21")
+  SONSTIGER_EHZ ("SONSTIGER_EHZ")
+  MME_STANDARD ("MME_STANDARD")
+  MME_MEDA ("MME_MEDA")
+}
+
+enum ZaehlzeitdefinitionTyp {
+  WAERMEPUMPE ("WAERMEPUMPE")
+  NACHTSPEICHERHEIZUNG ("NACHTSPEICHERHEIZUNG")
+  SCHWACHLASTZEITFENSTER ("SCHWACHLASTZEITFENSTER")
+  SONSTIGE ("SONSTIGE")
+  HOCHLASTZEITFENSTER ("HOCHLASTZEITFENSTER")
+}
+
+enum ZahlerBlindarbeit {
+  ANSCHLUSSNUTZER ("ANSCHLUSSNUTZER")
+  LIEFERANT ("LIEFERANT")
+  NICHT_FESTGELEGT ("NICHT_FESTGELEGT")
+}
+
+enum Zeiteinheit {
+  SEKUNDE ("SEKUNDE")
+  MINUTE ("MINUTE")
+  STUNDE ("STUNDE")
+  VIERTEL_STUNDE ("VIERTEL_STUNDE")
+  TAG ("TAG")
+  WOCHE ("WOCHE")
+  MONAT ("MONAT")
+  QUARTAL ("QUARTAL")
+  HALBJAHR ("HALBJAHR")
+  JAHR ("JAHR")
+}
+
+enum Zeitreihentyp {
+  EGS ("EGS")
+  LGS ("LGS")
+  NZR ("NZR")
+  SES ("SES")
+  SLS ("SLS")
+  TES ("TES")
+  TLS ("TLS")
+  SLS_TLS ("SLS_TLS")
+  SES_TES ("SES_TES")
+}
+
+enum ZuschlagTyp {
+  UMSPANNUNGSZUSCHLAG ("UMSPANNUNGSZUSCHLAG")
+  BETRIEBSMITTEL_P19_STROM_NEV ("BETRIEBSMITTEL_P19_STROM_NEV")
+  ANPASSUNG_P19_STROM_NEV ("ANPASSUNG_P19_STROM_NEV")
+  ANPASSUNG_PAUSCHALE_NETZENTGELTREDUZIERUNG_NACH_P14A_ENWG_AUF_HOEHE_DER_NNE ("ANPASSUNG_PAUSCHALE_NETZENTGELTREDUZIERUNG_NACH_P14A_ENWG_AUF_HOEHE_DER_NNE")
+}
+
+relationship OneToOne {
+ AdHocSteuerkanal{zieladresse} to Zieladresse 
+ AdHocSteuerkanal{aussteller} to Aussteller 
+ AdHocSteuerkanal{zertifikatsNutzer} to ZertifikatsNutzer 
+ AdHocSteuerkanal{IPAdresseCLSDevice} to IPAdresseCLSDevice 
+ Angebot{angebotgeber} to Geschaeftspartner 
+ Angebot{angebotnehmer} to Geschaeftspartner 
+ Angebot{unterzeichnerAngebotsnehmer} to Ansprechpartner 
+ Angebot{unterzeichnerAngebotsgeber} to Ansprechpartner 
+ Angebot{zeitspanneEinrichtungUebermittlungWerte} to Zeitraum 
+ Angebot{bindefristAngebot} to Zeitraum 
+ Auftrag{lieferanschrift} to Adresse 
+ Auftrag{mindestpreis} to Preis 
+ Auftrag{hoechstpreis} to Preis 
+ Auftrag{lieferadresseAltgeraete} to Geschaeftspartner 
+ Avis{zuZahlen} to Betrag 
+ Berechnungsformel{rechenschritt} to Rechenschritt 
+ Bilanzierung{temperaturarbeit} to Menge 
+ Bilanzierung{jahresverbrauchsprognose} to Menge 
+ Bilanzierung{kundenwert} to Menge 
+ Bilanzierung{verbrauchsaufteilung} to Menge 
+ Bilanzierung{vorjahresverbrauch} to Menge 
+ Geschaeftspartner{partneradresse} to Adresse 
+ Handelsunstimmigkeit{begruendung} to Handelsunstimmigkeitsbegruendung 
+ Handelsunstimmigkeit{zuZahlen} to Betrag 
+ Kommunikationsdaten{marktteilnehmer} to Marktteilnehmer 
+ Marktlokation{endkunde} to Geschaeftspartner 
+ Marktlokation{lokationsadresse} to Adresse 
+ Marktlokation{katasterinformation} to Katasteradresse 
+ Marktlokation{eigentuemer} to Geschaeftspartner 
+ Marktlokation{hausverwalter} to Geschaeftspartner 
+ Marktlokation{beteiligterMarktpartner} to Marktteilnehmer 
+ Marktteilnehmer{partneradresse} to Adresse 
+ Marktteilnehmer{ansprechpartner} to Ansprechpartner 
+ Marktteilnehmer{kommunikationsparameter} to Kommunikationsparameter 
+ Messlokation{messadresse} to Adresse 
+ Messlokation{ablesekartenempfaenger} to Geschaeftspartner 
+ Messlokation{beteiligterMarktpartner} to Marktteilnehmer 
+ Netzlokation{auftraggebenderMarktpartner} to Marktteilnehmer 
+ Preisblatt{gueltigkeit} to Zeitraum 
+ Rechnung{vorlaeufigerAbrechnungszeitraum} to Zeitraum 
+ Rechnung{rechnungsperiode} to Zeitraum 
+ Rechnung{gesamtbrutto} to Betrag 
+ Rechnung{zuZahlen} to Betrag 
+ Rechnung{vorausgezahlt} to Betrag 
+ Rechnung{gemeinderabatt} to Gemeinderabatt 
+ Reklamation{zeitraumMesswertanfrage} to Zeitraum 
+ Reklamation{reklamationsgrundBemerkung} to ReklamationsgrundBemerkung 
+ Sperrauftrag{treffpunkt} to Adresse 
+ Statusbericht{fehler} to Fehler 
+ SteuerbareRessource{auftraggebenderMarktpartner} to Marktteilnehmer 
+ SteuerbareRessource{zugeordneteDefinition} to ZugeordneteDefinition 
+ TechnischeRessource{nennleistung} to Nennleistung 
+ Tranche{endkunde} to Geschaeftspartner 
+ Tranche{lokationsadresse} to Adresse 
+ Tranche{katasterinformation} to Katasteradresse 
+ Tranche{aufteilungsmenge} to Menge 
+ Tranche{beteiligterMarktpartner} to Marktteilnehmer 
+ Vertrag{vertragskonditionen} to Vertragskonditionen 
+ Vertrag{korrespondenzpartner} to Geschaeftspartner 
+ WerteNachTyp2{zieladresse} to Zieladresse 
+ WerteNachTyp2{aussteller} to Aussteller 
+ WerteNachTyp2{zertifikatsNutzer} to ZertifikatsNutzer 
+ Zaehler{zaehlerhersteller} to Geschaeftspartner 
+ Adresse{zusatzInformation} to AdresszusatzInformation 
+ Angebotsposition{positionsmenge} to Menge 
+ Angebotsposition{positionspreis} to Preis 
+ Angebotsposition{positionsbetrag} to Betrag 
+ Angebotsteil{gesamtmengeangebotsteil} to Menge 
+ Angebotsteil{gesamtkostenangebotsteil} to Betrag 
+ Angebotsteil{lieferzeitraum} to Zeitraum 
+ Angebotsteil{verweisKatalognummer} to Katalogverweis 
+ Angebotsvariante{gesamtmenge} to Menge 
+ Angebotsvariante{gesamtkosten} to Betrag 
+ AuftragPosition{allgemeineInformationen} to AllgemeineInformationen 
+ AuftragPosition{infoAbweichung} to InfoAbweichung 
+ Avisposition{gesamtBrutto} to Betrag 
+ Avisposition{zuZahlen} to Betrag 
+ FehlerDetail{ursache} to FehlerUrsache 
+ FehlerDetail{beschreibung} to Beschreibung 
+ FehlerUrsache{gruppe} to Gruppe 
+ FehlerUrsache{beschreibung} to Beschreibung 
+ Geraet{geraeteeigenschaften} to Geraeteeigenschaften 
+ Kommunikationsparameter{zieladresse} to Zieladresse 
+ Kommunikationsparameter{zertifikatsAussteller} to ZertifikatsAussteller 
+ Kommunikationsparameter{zertifikatsNutzer} to ZertifikatsNutzer 
+ Lastprofil{tagesparameter} to Tagesparameter 
+ Leistungskurve{schwellwert} to Schwellwert 
+ Netznutzungsabrechnungsdaten{singulaereBetriebsmittel} to Menge 
+ Netznutzungsabrechnungsdaten{preisSingulaereBetriebsmittel} to Preis 
+ Netznutzungsabrechnungsdaten{zaehlzeiten} to Zaehlzeitregister 
+ Preisposition{verarbeitungszeitraum} to Zeitraum 
+ Preisstaffel{sigmoidparameter} to Sigmoidparameter 
+ Rechnungsposition{einzelpreis} to Preis 
+ Rechnungsposition{positionsMenge} to Menge 
+ Rechnungsposition{teilsummeNetto} to Betrag 
+ Rechnungsposition{teilsummeSteuer} to Steuerbetrag 
+ Rechnungsposition{zeitbezogeneMenge} to Menge 
+ Rechnungsposition{abschlag} to Abschlag 
+ Rechnungsposition{zuschlag} to Zuschlag 
+ Rechnungsposition{gemeinderabatt} to Gemeinderabatt 
+ StatusmitteilungPosition{fehlerbeschreibung} to Fehlerbeschreibung 
+ StatusmitteilungPosition{begruendung} to Begruendung 
+ StatusmitteilungPosition{allgemeineInformationen} to AllgemeineInformationen 
+ Vertragskonditionen{netznutzungsabrechnung} to Zeitraum 
+ Vertragskonditionen{gemeinderabatt} to Gemeinderabatt 
+ Vertragskonditionen{geplanteTurnusablesung} to Zeitraum 
+ Vertragskonditionen{kuendigungsfrist} to Zeitraum 
+ Vertragskonditionen{vertragslaufzeit} to Zeitraum 
+ Zaehlwerk{konzessionsabgabe} to Konzessionsabgabe 
+ Zaehlwerk{zaehlzeiten} to Zaehlzeitregister 
+}
+
+relationship OneToMany {
+ Angebot{varianten} to Angebotsvariante 
+ Ansprechpartner{rufnummern} to Rufnummer 
+ Auftrag{positionsdaten} to AuftragPosition 
+ Avis{positionen} to Avisposition 
+ Berechnungsformel{rechenschritte} to Rechenschritt 
+ Berechnungsformel{verwendungszweck} to Verwendungszweck 
+ Bilanzierung{lastprofile} to Lastprofil 
+ Bilanzierung{lastprofileBilanzierungsbeteiligter} to Lastprofil 
+ Energiemenge{energieverbrauch} to Verbrauch 
+ Geschaeftspartner{externeReferenzen} to ExterneReferenz 
+ Kommunikationsdaten{kommunikationsangaben} to Marktteilnehmer 
+ Leistungskurvendefinition{leistungskurven} to Leistungskurve 
+ Lokationsbuendel{zuordnungObjectcode} to ZuordnungObjectcode 
+ Marktlokation{marktrollen} to Marktteilnehmer 
+ Marktlokation{zaehlwerke} to Zaehlwerk 
+ Marktlokation{verbrauchsmenge} to Verbrauch 
+ Marktlokation{zugehoerigeMesslokationen} to Messlokationszuordnung 
+ Marktlokation{netznutzungsabrechnungsdaten} to Netznutzungsabrechnungsdaten 
+ Marktlokation{messstellenbetriebsabrechnungsdaten} to Messstellenbetriebsabrechnungsdaten 
+ Marktlokation{energieherkunft} to Energieherkunft 
+ Marktteilnehmer{bankverbindung} to Bankverbindung 
+ Marktteilnehmer{erreichbarkeit} to Erreichbarkeit 
+ Messlokation{geraete} to Geraet 
+ Messlokation{messdienstleistung} to Dienstleistung 
+ Messlokation{zaehlwerke} to Zaehlwerk 
+ Messlokation{marktrollen} to Marktteilnehmer 
+ Netzlokation{marktrollen} to Marktteilnehmer 
+ Netzlokation{zaehlwerke} to Zaehlwerk 
+ Netzlokation{abrechnungsdaten} to Netznutzungsabrechnungsdaten 
+ Preisblatt{preispositionen} to Preisposition 
+ Rechnung{steuerbetraege} to Steuerbetrag 
+ Rechnung{rechnungspositionen} to Rechnungsposition 
+ Schaltzeitdefinition{schaltzeiten} to Schaltzeit 
+ Statusmitteilung{positionsdaten} to StatusmitteilungPosition 
+ SteuerbareRessource{marktrollen} to Marktteilnehmer 
+ Tranche{marktrollen} to Marktteilnehmer 
+ Tranche{zaehlwerke} to Zaehlwerk 
+ Tranche{verbrauchsmenge} to Verbrauch 
+ Tranche{zugehoerigeMesslokationen} to Messlokationszuordnung 
+ Tranche{netznutzungsabrechnungsdaten} to Netznutzungsabrechnungsdaten 
+ Tranche{energieherkunft} to Energieherkunft 
+ Vertrag{vertragspartner1} to Geschaeftspartner 
+ Vertrag{vertragspartner2} to Geschaeftspartner 
+ Vertrag{enFG} to EnFG 
+ WerteNachTyp2{schwellwerte} to Schwellwert 
+ Zaehler{geraete} to Geraet 
+ Zaehler{zaehlwerke} to Zaehlwerk 
+ Zaehlzeitdefinition{zaehlzeiten} to Zaehlzeit 
+ Zaehlzeitdefinition{zaehlzeitregister} to Zaehlzeitregister 
+ Angebotsteil{lieferstellenangebotsteil} to Marktlokation 
+ Angebotsteil{positionen} to Angebotsposition 
+ Angebotsvariante{teile} to Angebotsteil 
+ Avisposition{abweichung} to Abweichung 
+ Avisposition{positionen} to Rueckmeldungsposition 
+ Fehler{fehlerDetails} to FehlerDetail 
+ Preisposition{zuabschlaege} to PositionsAufAbschlag 
+ Preisposition{preisstaffeln} to Preisstaffel 
+ Rueckmeldungsposition{abweichung} to Abweichung 
+ Verbrauch{statuszusatzinformationen} to StatusZusatzInformation 
+ Zaehlwerk{verwendungszwecke} to Verwendungszweck 
+ ZuordnungObjectcode{objectcode} to Objectcode 
+}
+
+dto * with mapstruct
+service * with serviceImpl
